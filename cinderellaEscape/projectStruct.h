@@ -1,0 +1,6 @@
+#ifndef PROJECTSTRUCT_H_INCLUDED
+#define PROJECTSTRUCT_H_INCLUDED
+
+
+
+#endif
