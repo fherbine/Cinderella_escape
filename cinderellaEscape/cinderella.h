@@ -3,4 +3,8 @@
 
 #include "colors.h"
 
+int     init_all(void);
+
+void    backgroundColor(int color);
+
 #endif
