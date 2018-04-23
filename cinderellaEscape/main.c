@@ -8,9 +8,9 @@ int main()
 
     init_all();
     backgroundColor(WHITE);
-
     tst.bg_color = WHITE;
-    tst.borders = BLUE;
+    //tst.borderBottom = BLUE;
+    tst.borders = WHITE;
     tst.text = "tutu";
     put_box(tst);
 
