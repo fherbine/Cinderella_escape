@@ -20,7 +20,7 @@ void        backgroundColor(int color)
 
 /// This function permit the initialization of a new box in the program
 
-t_box       init_box(void)
+t_box       init_box(int x1, int y1, int x2, int y2)
 {
     t_box newBox;
 
@@ -28,6 +28,10 @@ t_box       init_box(void)
     newBox.bg_color = NONE;
     newBox.text = NULL;
     newBox.txt_color = BLACK;
+    newBox.x1 = x1;
+    newBox.y1 = y1;
+    newBox.x2 = x2;
+    newBox.y2 = y2;
     return(newBox);
 }
 
