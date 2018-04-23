@@ -1,17 +1,17 @@
 # depslib dependency file v1.0
-1524522284 source:c:\users\felix\desktop\cb\cinderella\cinderellaescape\main.c
+1524525899 source:c:\users\felix\desktop\cb\cinderella\cinderellaescape\main.c
 	"cinderella.h"
 
-1524523938 c:\users\felix\desktop\cb\cinderella\cinderellaescape\cinderella.h
+1524525923 c:\users\felix\desktop\cb\cinderella\cinderellaescape\cinderella.h
 	<allegro.h>
 	<stdlib.h>
 	"colors.h"
 	"projectStruct.h"
 
-1524521106 c:\users\felix\desktop\cb\cinderella\cinderellaescape\colors.h
+1524524782 c:\users\felix\desktop\cb\cinderella\cinderellaescape\colors.h
 
 1524521728 source:c:\users\felix\desktop\cb\cinderella\cinderellaescape\config.c
 	"cinderella.h"
 
-1524523580 c:\users\felix\desktop\cb\cinderella\cinderellaescape\projectstruct.h
+1524525429 c:\users\felix\desktop\cb\cinderella\cinderellaescape\projectstruct.h
 

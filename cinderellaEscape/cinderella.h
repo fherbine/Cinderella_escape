@@ -10,5 +10,6 @@ int         init_all(void);
 
 void        backgroundColor(int color);
 t_box       init_box(void);
+void        put_box(t_box box);
 
 #endif

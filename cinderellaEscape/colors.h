@@ -15,4 +15,6 @@
 #define GREY makecol(128, 128, 128)
 #define LIGHTGREY makecol(211, 211, 211)
 
+#define NONE -1
+
 #endif

@@ -24,8 +24,39 @@ t_box       init_box(void)
 {
     t_box newBox;
 
-    newBox.borders = -1;
-    newBox.bg_color = -1;
+    newBox.borders = NONE;
+    newBox.bg_color = NONE;
     newBox.text = NULL;
+    newBox.txt_color = BLACK;
     return(newBox);
+}
+
+
+/// This function displays a box into window
+
+void        put_box(t_box box)
+{
+    BITMAP  *buffer;
+    int     wdth = box.x2 - box.x1, height = box.y2 - box.y1;
+
+    buffer = create_bitmap(wdth, height);
+    clear_bitmap(buffer);
+    if (box.bg_color != NONE)
+        rectfill(buffer, 0, 0, wdth, height, box.bg_color);
+    if (box.borders != NONE)
+        rect(buffer, 0, 0, wdth, height, box.borders);
+    else if (box.borderBottom != NONE || box.borderLeft != NONE || box.borderRight != NONE || box.borderTop != NONE)
+    {
+        if (box.borderBottom != NONE)
+            line(buffer, 0, height, wdth, height, box.borderBottom);
+        if (box.borderTop != NONE)
+            line(buffer, 0, 0, wdth, 0, box.borderTop);
+        if (box.borderLeft != NONE)
+            line(buffer, 0, 0, 0, height, box.borderLeft);
+        if (box.borderRight != NONE)
+            line(buffer, wdth, 0, wdth, height, box.borderLeft);
+    }
+    if (box.text)
+        textprintf_centre(buffer, font, wdth, height, box.txt_color, box.text);
+    blit(buffer, screen, box.x1, box.y1, box.x2, box.y2, wdth, height);
 }

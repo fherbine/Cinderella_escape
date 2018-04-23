@@ -8,6 +8,7 @@ typedef struct  s_box
     int         borders, borderLeft, borderRight, borderTop, borderBottom;
     int         bg_color;
     char        *text;
+    int         txt_color;
 }               t_box;
 
 #endif
