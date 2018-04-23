@@ -36,7 +36,7 @@
 		</Compiler>
 		<Unit filename="blocks.c">
 			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="Debug" />
 		</Unit>
 		<Unit filename="cinderella.h">
 			<Option target="&lt;{~None~}&gt;" />
@@ -46,10 +46,13 @@
 		</Unit>
 		<Unit filename="config.c">
 			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="Debug" />
 		</Unit>
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="projectStruct.h">
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Extensions>
 			<code_completion />
