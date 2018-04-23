@@ -43,7 +43,7 @@ void        put_box(t_box box)
     BITMAP  *buffer;
     int     wdth = box.x2 - box.x1, height = box.y2 - box.y1;
 
-    buffer = create_bitmap(wdth, height);
+    buffer = create_bitmap(wdth + 1, height + 1);
     clear_bitmap(buffer);
     if (box.bg_color != NONE)
         rectfill(buffer, 0, 0, wdth, height, box.bg_color);
@@ -60,7 +60,8 @@ void        put_box(t_box box)
         if (box.borderRight != NONE)
             line(buffer, wdth, 0, wdth, height, box.borderLeft);
     }
+    text_mode(-1);
     if (box.text)
-        textprintf_centre(buffer, font, wdth, height, box.txt_color, box.text);
-    blit(buffer, screen, box.x1, box.y1, box.x2, box.y2, wdth, height);
+        textprintf_centre(buffer, font, wdth / 2, height / 2 - (text_height(font) / 2), box.txt_color, box.text);
+    blit(buffer, screen, 0, 0, box.x1, box.y1, wdth + 1, height + 1);
 }
