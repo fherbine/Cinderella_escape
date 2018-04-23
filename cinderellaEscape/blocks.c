@@ -1,7 +1,7 @@
 #include "cinderella.h"
 
 /**
- * In this file you can find function to change layout to modify or create main blocks.
+ * In this file you can find functions to change layout to modify or create main blocks.
 **/
 
 
@@ -51,14 +51,15 @@ void        put_box(t_box box)
         rect(buffer, 0, 0, wdth, height, box.borders);
     else if (box.borderBottom != NONE || box.borderLeft != NONE || box.borderRight != NONE || box.borderTop != NONE)
     {
+            rect(buffer, 0, 0, wdth, height, WHITE);
         if (box.borderBottom != NONE)
-            line(buffer, 0, height, wdth, height, box.borderBottom);
+            line(buffer, 1, height, wdth, height, box.borderBottom);
         if (box.borderTop != NONE)
-            line(buffer, 0, 0, wdth, 0, box.borderTop);
+            line(buffer, 0, 0, wdth + 1, 0, box.borderTop);
         if (box.borderLeft != NONE)
-            line(buffer, 0, 0, 0, height, box.borderLeft);
+            line(buffer, 0, 0, 0, height + 1, box.borderLeft);
         if (box.borderRight != NONE)
-            line(buffer, wdth, 0, wdth, height, box.borderLeft);
+            line(buffer, wdth, 1, wdth, height, box.borderRight);
     }
     text_mode(-1);
     if (box.text)

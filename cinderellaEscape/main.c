@@ -4,14 +4,10 @@ int main()
 {
     t_box tst;
 
-    tst = init_box(10, 10, 100, 40);
-
     init_all();
     backgroundColor(WHITE);
-    tst.bg_color = WHITE;
-    //tst.borderBottom = BLUE;
-    tst.borders = WHITE;
-    tst.text = "tutu";
+
+    tst = newButton(150, 150, "hello");
     put_box(tst);
 
 
