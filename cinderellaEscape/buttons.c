@@ -20,6 +20,7 @@ t_box       newButton(int x, int y, char *text)
     return (button);
 }
 
+/// default button layout
 
 t_box   regularButton(t_box button)
 {
@@ -29,6 +30,8 @@ t_box   regularButton(t_box button)
     button.borderRight = BLACK;
     return(button);
 }
+
+/// Modify the layout when mouse hover
 
 t_box   hoverButton(t_box button)
 {
@@ -40,7 +43,7 @@ t_box   hoverButton(t_box button)
     return(button);
 }
 
-/// on peut opti
+/// the following function can be use to know a button's status and change it layout during mouse hover.
 
 t_box   buttonStatusUpdate(t_box button)
 {
@@ -51,10 +54,7 @@ t_box   buttonStatusUpdate(t_box button)
         put_box(button);
     }
     else if (mouse_x >= button.x1 && mouse_x <= button.x2 && mouse_y >= button.y1 && mouse_y <= button.y2 && mouse_b == 1)
-    {
-        printf("okok");
         button.but_status = 2;
-    }
     else if(button.but_status != 0)
     {
         button = regularButton(button);
