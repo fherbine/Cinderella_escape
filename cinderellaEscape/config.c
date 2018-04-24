@@ -29,5 +29,7 @@ int     init_all(void)
         allegro_message("Cannot set video mode : %s\n", allegro_error);
         return (-1);
     }
+
+    show_mouse(screen);
     return (1);
 }

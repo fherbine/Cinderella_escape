@@ -3,23 +3,29 @@
 static void test()
 {
     t_box tst;
+    BITMAP *buff;
 
     init_all();
-    backgroundColor(WHITE);
+    buff = create_bitmap(SCREEN_W, SCREEN_H);
+    buff = backgroundColor(WHITE, buff);
     tst = newButton(150, 150, "hello world !");
-    put_box(tst);
+    buff = put_box(tst, buff);
+
 
 
     while(!key[KEY_ENTER])
     {
-        show_mouse(screen);
+        //clear_bitmap(buff);
         tst = buttonStatusUpdate(tst);
+        buff = put_box(tst, buff);
+        blit(buff, screen, 0, 0, 0, 0, SCREEN_W, SCREEN_H);
     }
 }
 
 int main()
 {
-    test();
+ ///  test();
+    cind();
     return 0;
 }
 END_OF_MAIN();

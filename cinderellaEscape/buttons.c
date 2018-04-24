@@ -51,7 +51,6 @@ t_box   buttonStatusUpdate(t_box button)
     {
         button = hoverButton(button);
         button.but_status = 1;
-        put_box(button);
     }
     else if (mouse_x >= button.x1 && mouse_x <= button.x2 && mouse_y >= button.y1 && mouse_y <= button.y2 && mouse_b == 1)
         button.but_status = 2;
@@ -59,7 +58,6 @@ t_box   buttonStatusUpdate(t_box button)
     {
         button = regularButton(button);
         button.but_status = 0;
-        put_box(button);
     }
     return(button);
 }

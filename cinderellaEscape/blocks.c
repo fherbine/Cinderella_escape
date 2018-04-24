@@ -7,14 +7,15 @@
 
 /// The following function can be use at the beginning of the code to change the background color.
 
-void        backgroundColor(int color)
+BITMAP      *backgroundColor(int color, BITMAP *buff)
 {
     BITMAP  *buffer;
 
     buffer = create_bitmap(SCREEN_W, SCREEN_H);
     clear_bitmap(buffer);
     rectfill(buffer, 0, 0, SCREEN_W, SCREEN_H, color);
-    blit(buffer, screen, 0, 0, 0, 0, SCREEN_W, SCREEN_H);
+    blit(buffer, buff, 0, 0, 0, 0, SCREEN_W, SCREEN_H);
+    return (buff);
 }
 
 
@@ -39,7 +40,7 @@ t_box       init_box(int x1, int y1, int x2, int y2)
 
 /// This function displays a box into window
 
-void        put_box(t_box box)
+BITMAP  *put_box(t_box box, BITMAP *buff)
 {
     int     wdth = box.x2 - box.x1, height = box.y2 - box.y1;
 
@@ -64,8 +65,9 @@ void        put_box(t_box box)
     text_mode(-1);
     if (box.text)
         textprintf_centre(box.buffer, font, wdth / 2, height / 2 - (text_height(font) / 2), box.txt_color, box.text);
-    blit(box.buffer, screen, 0, 0, box.x1, box.y1, wdth + 1, height + 1);
+    blit(box.buffer, buff, 0, 0, box.x1, box.y1, wdth + 1, height + 1);
     destroy_bitmap(box.buffer);
+    return (buff);
 }
 
 
