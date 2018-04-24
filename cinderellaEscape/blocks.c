@@ -32,6 +32,7 @@ t_box       init_box(int x1, int y1, int x2, int y2)
     newBox.y1 = y1;
     newBox.x2 = x2;
     newBox.y2 = y2;
+    newBox.but_status = -1;
     return(newBox);
 }
 

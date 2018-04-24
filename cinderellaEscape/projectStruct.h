@@ -10,6 +10,7 @@ typedef struct  s_box
     char        *text;
     int         txt_color;
     BITMAP      *buffer;
+    int         but_status;
 }               t_box;
 
 #endif

@@ -13,6 +13,7 @@ t_box       newButton(int x, int y, char *text)
     t_box   button;
 
     button = init_box(x, y, x + width, y + height);
+    button.but_status = 0;
     button.bg_color = WHITE;
     button.text = text;
     button = regularButton(button);
@@ -43,12 +44,22 @@ t_box   hoverButton(t_box button)
 
 t_box   buttonStatusUpdate(t_box button)
 {
-    if (mouse_x >= button.x1 && mouse_x <= button.x2 && mouse_y >= button.y1 && mouse_y <= button.y2)
+    if (mouse_x >= button.x1 && mouse_x <= button.x2 && mouse_y >= button.y1 && mouse_y <= button.y2 && mouse_b != 1)
     {
         button = hoverButton(button);
+        button.but_status = 1;
+        put_box(button);
     }
-    else
+    else if (mouse_x >= button.x1 && mouse_x <= button.x2 && mouse_y >= button.y1 && mouse_y <= button.y2 && mouse_b == 1)
+    {
+        printf("okok");
+        button.but_status = 2;
+    }
+    else if(button.but_status != 0)
+    {
         button = regularButton(button);
-    put_box(button);
+        button.but_status = 0;
+        put_box(button);
+    }
     return(button);
 }
