@@ -1,6 +1,6 @@
 #include "cinderella.h"
 
-int main()
+static void test()
 {
     t_box tst;
 
@@ -10,11 +10,16 @@ int main()
     put_box(tst);
 
 
-    while(!key[KEY_ESC])
+    while(!key[KEY_ENTER])
     {
         show_mouse(screen);
         tst = buttonStatusUpdate(tst);
     }
+}
+
+int main()
+{
+    test();
     return 0;
 }
 END_OF_MAIN();
