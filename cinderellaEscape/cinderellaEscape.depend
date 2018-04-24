@@ -1,8 +1,8 @@
 # depslib dependency file v1.0
-1524529687 source:c:\users\felix\desktop\cb\cinderella\cinderellaescape\main.c
+1524534453 source:c:\users\felix\desktop\cb\cinderella\cinderellaescape\main.c
 	"cinderella.h"
 
-1524529995 c:\users\felix\desktop\cb\cinderella\cinderellaescape\cinderella.h
+1524531933 c:\users\felix\desktop\cb\cinderella\cinderellaescape\cinderella.h
 	<allegro.h>
 	<stdlib.h>
 	<stdio.h>
@@ -10,16 +10,16 @@
 	"colors.h"
 	"projectStruct.h"
 
-1524524782 c:\users\felix\desktop\cb\cinderella\cinderellaescape\colors.h
+1524533819 c:\users\felix\desktop\cb\cinderella\cinderellaescape\colors.h
 
-1524521728 source:c:\users\felix\desktop\cb\cinderella\cinderellaescape\config.c
+1524534515 source:c:\users\felix\desktop\cb\cinderella\cinderellaescape\config.c
 	"cinderella.h"
 
-1524525429 c:\users\felix\desktop\cb\cinderella\cinderellaescape\projectstruct.h
+1524532993 c:\users\felix\desktop\cb\cinderella\cinderellaescape\projectstruct.h
 
-1524529967 source:c:\users\felix\desktop\cb\cinderella\cinderellaescape\blocks.c
+1524533871 source:c:\users\felix\desktop\cb\cinderella\cinderellaescape\blocks.c
 	"cinderella.h"
 
-1524529942 source:c:\users\felix\desktop\cb\cinderella\cinderellaescape\buttons.c
+1524534515 source:c:\users\felix\desktop\cb\cinderella\cinderellaescape\buttons.c
 	"cinderella.h"
 

@@ -9,6 +9,7 @@ typedef struct  s_box
     int         bg_color;
     char        *text;
     int         txt_color;
+    BITMAP      *buffer;
 }               t_box;
 
 #endif
