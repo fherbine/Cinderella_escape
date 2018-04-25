@@ -25,4 +25,6 @@ void        cind(void);
 
 BITMAP      *add_alph_bmp(BITMAP *curr, char *path, int pic_w, int pic_h);
 
+void        leave_game(t_box *m_buts, t_box *g_buts, BITMAP *game, BITMAP *menu);
+
 #endif

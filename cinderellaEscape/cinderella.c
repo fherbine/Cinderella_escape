@@ -15,6 +15,11 @@ BITMAP *menu_func(BITMAP *menu, int *status, t_box *m_buts)
     if ((m_buts[0]).but_status == 2)
       *status = 1;
     menu = put_box(m_buts[0], menu);
+
+    m_buts[1] = buttonStatusUpdate(m_buts[1]);
+    if ((m_buts[1]).but_status == 2)
+      *status = 2;
+    menu = put_box(m_buts[1], menu);
     return (menu);
 }
 
@@ -50,8 +55,10 @@ void cind(void)
     menu = backgroundColor(WHITE, menu);
 
     m_buts[0] = newButton(200, 400, "Nouvelle partie");
+    m_buts[1] = newButton(300, 500, "Quitter");
     g_buts[0] = newButton(600, 2, "Menu");
     menu = put_box(m_buts[0], menu);
+    menu = put_box(m_buts[1], menu);
     game = put_box(g_buts[0], game);
     menu = add_alph_bmp(menu, "imgs/banner.bmp", 200, 90);
     win = menu;
@@ -63,8 +70,12 @@ void cind(void)
         win = (*status == 0) ? menu : game;
         if (*status == 0)
             menu = menu_func(menu, status, m_buts);
+
         if (*status == 1)
             game = game_func(game, status, g_buts);
+
+        if (*status == 2)
+            leave_game(m_buts, g_buts, game, menu);
         blit(win, screen, 0, 0, 0, 0, SCREEN_W, SCREEN_H);
     }
 }
