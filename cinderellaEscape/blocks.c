@@ -15,6 +15,7 @@ BITMAP      *backgroundColor(int color, BITMAP *buff)
     clear_bitmap(buffer);
     rectfill(buffer, 0, 0, SCREEN_W, SCREEN_H, color);
     blit(buffer, buff, 0, 0, 0, 0, SCREEN_W, SCREEN_H);
+    destroy_bitmap(buffer);
     return (buff);
 }
 
