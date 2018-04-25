@@ -17,13 +17,12 @@ BITMAP      *put_box(t_box box, BITMAP *buff);
 void        hide_box(t_box box);
 
 t_box       newButton(int x, int y, char *text);
-t_box       regularButton(t_box button);
-t_box       hoverButton(t_box button);
 t_box       buttonStatusUpdate(t_box button);
 
 void        cind(void);
 
 BITMAP      *add_alph_bmp(BITMAP *curr, char *path, int pic_w, int pic_h);
+BITMAP      *add_reg_bmp(BITMAP *curr, char *path, int pic_w, int pic_h);
 
 void        leave_game(t_box *m_buts, t_box *g_buts, BITMAP *game, BITMAP *menu);
 
