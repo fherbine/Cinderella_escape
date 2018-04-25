@@ -40,7 +40,10 @@
 		</Unit>
 		<Unit filename="buttons.c">
 			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="Debug" />
+		</Unit>
+		<Unit filename="cinderella.c">
+			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="cinderella.h">
 			<Option target="&lt;{~None~}&gt;" />
@@ -55,8 +58,15 @@
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="maps.h" />
+		<Unit filename="pics.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="projectStruct.h">
 			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="utils.c">
+			<Option compilerVar="CC" />
 		</Unit>
 		<Extensions>
 			<code_completion />
