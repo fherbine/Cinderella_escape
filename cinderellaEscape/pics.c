@@ -2,9 +2,12 @@
 
 BITMAP *add_alph_bmp(BITMAP *curr, char *path, int pic_w, int pic_h)
 {
+    printf("\ntutu\n");
     BITMAP* pic ;
 
+    printf("\ntutu\n");
     pic = load_bitmap(path, NULL) ;
+    printf("\ntutu\n");
 
     if(!pic) {
         set_gfx_mode(GFX_TEXT, 0, 0, 0, 0);

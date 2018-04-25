@@ -20,18 +20,22 @@ BITMAP *menu_func(BITMAP *menu, int *status, t_box *m_buts)
 
 void cind(void)
 {
+    int     st_val = 0;
+    int     *status;
     BITMAP  *win;
     BITMAP  *game;
     BITMAP  *menu;
     t_box   *m_buts;
     t_box   *g_buts;
-    int     *status;
 
 
+
+    status = &st_val;
     if (!(m_buts = (t_box *)malloc(sizeof(t_box) * 3))) /// 20 !!
         exit(EXIT_FAILURE);
-    //if (!(g_buts = (t_box *)malloc(sizeof(t_box) * 20))) /// 20 !!
-      //  exit(EXIT_FAILURE);
+    if (!(g_buts = (t_box *)malloc(sizeof(t_box) * 20))) /// 20 !!
+        exit(EXIT_FAILURE);
+
 
     init_all();
 
@@ -46,12 +50,11 @@ void cind(void)
     menu = backgroundColor(WHITE, menu);
 
     m_buts[0] = newButton(200, 400, "Nouvelle partie");
-    //g_buts[0] = newButton(350, 2, "Menu");
+    g_buts[0] = newButton(600, 2, "Menu");
     menu = put_box(m_buts[0], menu);
-    //game = put_box(g_buts[0], game);
+    game = put_box(g_buts[0], game);
     menu = add_alph_bmp(menu, "imgs/banner.bmp", 200, 90);
     win = menu;
-    *status = 0;
     blit(win, screen, 0, 0, 0, 0, SCREEN_W, SCREEN_H);
     /// ------
 
@@ -60,6 +63,8 @@ void cind(void)
         win = (*status == 0) ? menu : game;
         if (*status == 0)
             menu = menu_func(menu, status, m_buts);
+        if (*status == 1)
+            game = game_func(game, status, g_buts);
         blit(win, screen, 0, 0, 0, 0, SCREEN_W, SCREEN_H);
     }
 }
