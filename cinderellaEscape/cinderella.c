@@ -20,6 +20,7 @@ void cind(void)
     BITMAP  *game;
     BITMAP  *menu;
     t_box   *m_buts;
+    t_box   *g_buts;
     int     *status;
 
 
@@ -39,6 +40,7 @@ void cind(void)
     menu = backgroundColor(WHITE, menu);
     m_buts[0] = newButton(200, 400, "Nouvelle partie");
     menu = put_box(m_buts[0], menu);
+    menu = add_alph_bmp(menu, "imgs/banner.bmp", 200, 90);
     win = menu;
     *status = 0;
     blit(win, screen, 0, 0, 0, 0, SCREEN_W, SCREEN_H);

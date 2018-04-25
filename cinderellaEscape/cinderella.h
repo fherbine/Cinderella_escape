@@ -23,4 +23,6 @@ t_box       buttonStatusUpdate(t_box button);
 
 void        cind(void);
 
+BITMAP      *add_alph_bmp(BITMAP *curr, char *path, int pic_w, int pic_h);
+
 #endif
