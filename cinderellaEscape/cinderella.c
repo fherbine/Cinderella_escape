@@ -36,9 +36,9 @@ void cind(void)
 
 
     status = &st_val;
-    if (!(m_buts = (t_box *)malloc(sizeof(t_box) * 3))) /// 20 !!
+    if (!(m_buts = (t_box *)malloc(sizeof(t_box) * 10))) /// 10 !!
         exit(EXIT_FAILURE);
-    if (!(g_buts = (t_box *)malloc(sizeof(t_box) * 20))) /// 20 !!
+    if (!(g_buts = (t_box *)malloc(sizeof(t_box) * 10))) /// 10 !!
         exit(EXIT_FAILURE);
 
 
@@ -56,7 +56,7 @@ void cind(void)
 
     m_buts[0] = newButton(200, 400, "Nouvelle partie");
     m_buts[1] = newButton(300, 500, "Quitter");
-    g_buts[0] = newButton(600, 2, "Menu");
+    g_buts[0] = newButton(675, 20, "Menu");
     menu = put_box(m_buts[0], menu);
     menu = put_box(m_buts[1], menu);
     game = put_box(g_buts[0], game);
@@ -64,6 +64,8 @@ void cind(void)
     win = menu;
     blit(win, screen, 0, 0, 0, 0, SCREEN_W, SCREEN_H);
     /// ------
+        rect(game, 238, 108, 798, 598, BLACK);
+    /// -----
 
     while (!key[KEY_ENTER])
     {
