@@ -1,25 +1,25 @@
 #include "cinderella.h"
 
-BITMAP *game_func(BITMAP *game, int *status, t_box *g_buts)
+t_page game_func(t_page game, int *status)
 {
-    g_buts[0] = buttonStatusUpdate(g_buts[0]);
-    if ((g_buts[0]).but_status == 2)
+    game.buts[0] = buttonStatusUpdate(game.buts[0]);
+    if ((game.buts[0]).but_status == 2)
       *status = 0;
-    game = put_box(g_buts[0], game);
+    game.win = put_box(game.buts[0], game.win);
     return(game);
 }
 
-BITMAP *menu_func(BITMAP *menu, int *status, t_box *m_buts)
+t_page menu_func(t_page menu, int *status)
 {
-    m_buts[0] = buttonStatusUpdate(m_buts[0]);
-    if ((m_buts[0]).but_status == 2)
+    menu.buts[0] = buttonStatusUpdate(menu.buts[0]);
+    if ((menu.buts[0]).but_status == 2)
       *status = 1;
-    menu = put_box(m_buts[0], menu);
+    menu.win = put_box(menu.buts[0], menu.win);
 
-    m_buts[1] = buttonStatusUpdate(m_buts[1]);
-    if ((m_buts[1]).but_status == 2)
+    menu.buts[1] = buttonStatusUpdate(menu.buts[1]);
+    if ((menu.buts[1]).but_status == 2)
       *status = 2;
-    menu = put_box(m_buts[1], menu);
+    menu.win= put_box(menu.buts[1], menu.win);
     return (menu);
 }
 
@@ -28,56 +28,54 @@ void cind(void)
     int     st_val = 0;
     int     *status;
     BITMAP  *win;
-    BITMAP  *game;
-    BITMAP  *menu;
-    t_box   *m_buts;
-    t_box   *g_buts;
+    t_page  game;
+    t_page  menu;
 
 
 
     status = &st_val;
-    if (!(m_buts = (t_box *)malloc(sizeof(t_box) * 10))) /// 10 !!
+    if (!(menu.buts = (t_box *)malloc(sizeof(t_box) * 10))) /// 10 !!
         exit(EXIT_FAILURE);
-    if (!(g_buts = (t_box *)malloc(sizeof(t_box) * 10))) /// 10 !!
+    if (!(game.buts = (t_box *)malloc(sizeof(t_box) * 10))) /// 10 !!
         exit(EXIT_FAILURE);
 
 
     init_all();
 
-    game = create_bitmap(SCREEN_W, SCREEN_H);
-    menu = create_bitmap(SCREEN_W, SCREEN_H);
-    win = game;
+    game.win = create_bitmap(SCREEN_W, SCREEN_H);
+    menu.win = create_bitmap(SCREEN_W, SCREEN_H);
 
     ///-----
-    clear_bitmap(menu);
-    clear_bitmap(game);
-    game = backgroundColor(WHITE, game);
-    menu = backgroundColor(WHITE, menu);
+    clear_bitmap(menu.win);
+    clear_bitmap(game.win);
+    game.win = backgroundColor(WHITE, game.win);
+    menu.win = backgroundColor(WHITE, menu.win);
 
-    m_buts[0] = newButton(200, 400, "Nouvelle partie");
-    m_buts[1] = newButton(300, 500, "Quitter");
-    g_buts[0] = newButton(675, 20, "Menu");
-    menu = put_box(m_buts[0], menu);
-    menu = put_box(m_buts[1], menu);
-    game = put_box(g_buts[0], game);
-    menu = add_alph_bmp(menu, "imgs/banner.bmp", 200, 90);
-    win = menu;
+    menu.buts[0] = newButton(200, 400, "Nouvelle partie");
+    menu.buts[1] = newButton(300, 500, "Quitter");
+    game.buts[0] = newButton(675, 20, "Menu");
+    menu.win = put_box(menu.buts[0], menu.win);
+    menu.win = put_box(menu.buts[1], menu.win);
+    game.win = put_box(game.buts[0], game.win);
+    menu.win = add_alph_bmp(menu.win, "imgs/banner.bmp", 200, 90, 300, 20);
+    win = menu.win;
     blit(win, screen, 0, 0, 0, 0, SCREEN_W, SCREEN_H);
     /// ------
-        rect(game, 238, 108, 798, 598, BLACK);
+        rect(game.win, 237, 107, 798, 598, BLACK);
+        game.win = add_reg_bmp(game.win, "imgs/map1.bmp", 560, 490, 238, 108);
     /// -----
 
     while (!key[KEY_ENTER])
     {
-        win = (*status == 0) ? menu : game;
+        win = (*status == 0) ? menu.win : game.win;
         if (*status == 0)
-            menu = menu_func(menu, status, m_buts);
+            menu = menu_func(menu, status);
 
         if (*status == 1)
-            game = game_func(game, status, g_buts);
+            game = game_func(game, status);
 
         if (*status == 2)
-            leave_game(m_buts, g_buts, game, menu);
+            leave_game(game, menu);
         blit(win, screen, 0, 0, 0, 0, SCREEN_W, SCREEN_H);
     }
 }

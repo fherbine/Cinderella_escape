@@ -12,4 +12,10 @@ typedef struct  s_box
     int         but_status;
 }               t_box;
 
+typedef struct  s_page
+{
+    BITMAP      *win;
+    t_box       *buts;
+}               t_page;
+
 #endif

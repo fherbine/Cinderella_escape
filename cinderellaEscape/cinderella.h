@@ -21,9 +21,9 @@ t_box       buttonStatusUpdate(t_box button);
 
 void        cind(void);
 
-BITMAP      *add_alph_bmp(BITMAP *curr, char *path, int pic_w, int pic_h);
-BITMAP      *add_reg_bmp(BITMAP *curr, char *path, int pic_w, int pic_h);
+BITMAP      *add_alph_bmp(BITMAP *curr, char *path, int pic_w, int pic_h, int dest_x, int dest_y);
+BITMAP      *add_reg_bmp(BITMAP *curr, char *path, int pic_w, int pic_h, int dest_x, int dest_y);
 
-void        leave_game(t_box *m_buts, t_box *g_buts, BITMAP *game, BITMAP *menu);
+void        leave_game(t_page game, t_page menu);
 
 #endif
