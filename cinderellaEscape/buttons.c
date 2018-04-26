@@ -13,6 +13,7 @@ static t_box   regularButton(t_box button)
     button.borderLeft = LIGHTGREY;
     button.borderBottom = BLACK;
     button.borderRight = BLACK;
+    button.bg_color = WHITE;
     return(button);
 }
 
