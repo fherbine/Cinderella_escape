@@ -1,5 +1,11 @@
 #include "cinderella.h"
 
+t_bots          bots_tab[1] =
+{
+    // path              nimg wdth height
+    {"imgs/cind_right.bmp", 4, 35, 35}
+};
+
 static void test()
 {
     t_box tst;
