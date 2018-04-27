@@ -25,6 +25,7 @@ void    game_routine(t_page *game)
 
 void game_func(t_page *game, int *status, t_bots *bot)
 {
+    printf("tutu\n");
     game->buts[0] = buttonStatusUpdate(game->buts[0]);
     if ((game->buts[0]).but_status == 2)
     {
@@ -35,4 +36,5 @@ void game_func(t_page *game, int *status, t_bots *bot)
     game->win = put_box(game->buts[0], game->win);
     if (key[KEY_ENTER])
         refresh_bot(bot, 0, 0, game);
+    printf("toto\n");
 }
