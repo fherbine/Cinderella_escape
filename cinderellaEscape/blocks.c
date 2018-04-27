@@ -64,7 +64,7 @@ BITMAP  *put_box(t_box box, BITMAP *buff)
         if (box.borderRight != NONE)
             line(buffer, wdth, 1, wdth, height, box.borderRight);
     }
-    text_mode(-1);
+    //text_mode(-1);
     if (box.text)
         textprintf_centre(buffer, font, wdth / 2, height / 2 - (text_height(font) / 2), box.txt_color, box.text);
     blit(buffer, buff, 0, 0, box.x1, box.y1, wdth + 1, height + 1);

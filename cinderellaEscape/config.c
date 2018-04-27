@@ -33,5 +33,6 @@ int     init_all(void)
 
     show_mouse(screen);
     init_all_seq();
+    text_mode(-1);
     return (1);
 }

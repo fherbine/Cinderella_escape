@@ -16,7 +16,7 @@ static t_bots_seq  init_seq(t_bots_seq seq)
     while (i < seq.nimg)
    {
         seq.img[i] = create_bitmap(seq.sx, seq.sy);
-      clear_bitmap(seq.img[i]);
+        clear_bitmap(seq.img[i]);
         blit(tmp, seq.img[i], px, 0, 0, 0, seq.sx, seq.sy);
         i++;
         px += seq.sx;
@@ -35,7 +35,7 @@ void    init_all_seq(void)
     }
 }
 
-t_bots  *new_bot(t_bots_seq seq, int x, int y)
+t_bots  *new_bot(t_bots_seq seq, int x, int y, t_page *game)
 {
     t_bots *bot;
 
@@ -46,22 +46,31 @@ t_bots  *new_bot(t_bots_seq seq, int x, int y)
     bot->pos_x = 238 + (x * 35);
     bot->pos_y = 108 + (y * 35);
     bot->seq = seq;
+    text_mode(-1);
+    bot->buffer = create_bitmap(SCREEN_W, SCREEN_H);
+    clear_bitmap(bot->buffer);
+    printf("\n%d %d", bot->seq.sx, bot->seq.sy);
+    blit(bot->seq.img[0], bot->buffer, 0, 0, bot->pos_x, bot->pos_y, bot->seq.sx, bot->seq.sy);
+    masked_blit(bot->buffer, game->win, 0, 0, 0, 0, SCREEN_W, SCREEN_H);
     return (bot);
 }
 
-t_bots  *refresh_bot(t_bots *bot, int dest_x, int dest_y, t_page *game)
+void refresh_bot(t_bots *bot, int dest_x, int dest_y, t_page *game)
 {
     int cur_x = bot->virt_x, cur_y = bot->virt_y;
     int i = 0;
     text_mode(-1);
-    while(cur_x < dest_x)
+    /*while(cur_x < dest_x)
     {
         clear_bitmap(bot->buffer);
-        masked_blit(bot->seq.img[i], bot->buffer, 0, 0, 0, 0, bot->seq.sx, bot->seq.sy);
-        blit(bot->buffer, game->win, 0, 0, bot->pos_x, bot->pos_y, bot->seq.sx, bot->seq.sy);
+        blit(bot->seq.img[i], bot->buffer, 0, 0, 0, 0, bot->seq.sx, bot->seq.sy);
+        draw_sprite(game->win, bot->buffer,bot->pos_x, bot->pos_y);
+        masked_blit(bot->buffer, game->win, 0, 0, bot->pos_x, bot->pos_y, SCREEN_W, SCREEN_H);
         bot->virt_x += 1;
+        cur_x ++;
         bot->pos_x += bot->seq.sx;
-    }
+        i = (i == 3) ? 0 : i + 1;
+    }*/
    /* while(cur_x < dest_x)
     {
 

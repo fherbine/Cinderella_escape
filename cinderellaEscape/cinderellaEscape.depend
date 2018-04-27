@@ -23,10 +23,10 @@
 1524535508 source:c:\users\felix\desktop\cb\cinderella\cinderellaescape\buttons.c
 	"cinderella.h"
 
-1524680890 source:c:\users\felix\desktop\cb\cind\cinderellaescape\blocks.c
+1524799307 source:c:\users\felix\desktop\cb\cind\cinderellaescape\blocks.c
 	"cinderella.h"
 
-1524796277 c:\users\felix\desktop\cb\cind\cinderellaescape\cinderella.h
+1524798987 c:\users\felix\desktop\cb\cind\cinderellaescape\cinderella.h
 	<allegro.h>
 	<stdlib.h>
 	<stdio.h>
@@ -37,12 +37,12 @@
 
 1524608243 c:\users\felix\desktop\cb\cind\cinderellaescape\colors.h
 
-1524794480 c:\users\felix\desktop\cb\cind\cinderellaescape\projectstruct.h
+1524798979 c:\users\felix\desktop\cb\cind\cinderellaescape\projectstruct.h
 
-1524796105 source:c:\users\felix\desktop\cb\cind\cinderellaescape\config.c
+1524799745 source:c:\users\felix\desktop\cb\cind\cinderellaescape\config.c
 	"cinderella.h"
 
-1524796105 source:c:\users\felix\desktop\cb\cind\cinderellaescape\main.c
+1524798672 source:c:\users\felix\desktop\cb\cind\cinderellaescape\main.c
 	"cinderella.h"
 
 1524783606 source:c:\users\felix\desktop\cb\cind\cinderellaescape\buttons.c
@@ -50,7 +50,7 @@
 
 1524610064 c:\users\felix\desktop\cb\cind\cinderellaescape\maps.h
 
-1524793090 source:c:\users\felix\desktop\cb\cind\cinderellaescape\cinderella.c
+1524798949 source:c:\users\felix\desktop\cb\cind\cinderellaescape\cinderella.c
 	"cinderella.h"
 
 1524778831 source:c:\users\felix\desktop\cb\cind\cinderellaescape\pics.c
@@ -59,6 +59,6 @@
 1524792966 source:c:\users\felix\desktop\cb\cind\cinderellaescape\utils.c
 	"cinderella.h"
 
-1524795619 source:c:\users\felix\desktop\cb\cind\cinderellaescape\bots.c
+1524799720 source:c:\users\felix\desktop\cb\cind\cinderellaescape\bots.c
 	"cinderella.h"
 

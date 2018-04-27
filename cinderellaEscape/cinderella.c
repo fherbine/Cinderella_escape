@@ -1,11 +1,12 @@
 #include "cinderella.h"
 
-void game_func(t_page *game, int *status)
+void game_func(t_page *game, int *status, t_bots *bot)
 {
     game->buts[0] = buttonStatusUpdate(game->buts[0]);
     if ((game->buts[0]).but_status == 2)
       *status = 0;
     game->win = put_box(game->buts[0], game->win);
+    refresh_bot(bot, 3, 0, game);
 }
 
 void menu_func(t_page *menu, int *status)
@@ -67,6 +68,13 @@ void cind(void)
         game->win = add_reg_bmp(game->win, "imgs/map1.bmp", 560, 490, 238, 108);
     /// -----
 
+
+    /// -----
+    t_bots *bot1;
+
+    bot1 = new_bot(bots_tab[0], 0, 0, game);
+    /// ----
+
     while (!key[KEY_ENTER])
     {
         win = (*status == 0) ? menu->win : game->win;
@@ -74,7 +82,7 @@ void cind(void)
             menu_func(menu, status);
 
         if (*status == 1)
-            game_func(game, status);
+            game_func(game, status, bot1);
 
         if (*status == 2)
             leave_game(game, menu);
