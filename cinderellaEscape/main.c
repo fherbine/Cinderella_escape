@@ -1,6 +1,6 @@
 #include "cinderella.h"
 
-t_bots          bots_tab[1] =
+t_bots_seq         bots_tab[NSEQ] =
 {
     // path              nimg wdth height
     {"imgs/cind_right.bmp", 4, 35, 35}

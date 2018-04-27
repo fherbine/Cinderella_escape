@@ -9,6 +9,8 @@
 #include "maps.h"
 #include "projectStruct.h"
 
+#define NSEQ 1
+
 int         init_all(void);
 
 BITMAP      *backgroundColor(int color, BITMAP *buff);
@@ -24,6 +26,9 @@ void        cind(void);
 BITMAP      *add_alph_bmp(BITMAP *curr, char *path, int pic_w, int pic_h, int dest_x, int dest_y);
 BITMAP      *add_reg_bmp(BITMAP *curr, char *path, int pic_w, int pic_h, int dest_x, int dest_y);
 
-void        leave_game(t_page game, t_page menu);
+void        leave_game(t_page *game, t_page *menu);
+
+t_bots_seq  *init_all_seq(t_bots_seq *seqs);
+t_bots      new_bot(t_bots_seq seq, int x, int y);
 
 #endif

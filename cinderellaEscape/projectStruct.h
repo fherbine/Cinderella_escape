@@ -18,12 +18,19 @@ typedef struct  s_page
     t_box       *buts;
 }               t_page;
 
-typedef struct  s_bots
+typedef struct  s_bots_seq
 {
     char        *path;
     int         nimg;
     int         sx, sy;
     BITMAP      **img;
+}               t_bots_seq;
+
+typedef struct  s_bots
+{
+    t_bots_seq  cur_bot;
+    int         pos_x, pos_y;
+    int         virt_x, virt_y;
 }               t_bots;
 
 #endif
