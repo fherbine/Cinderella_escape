@@ -37,6 +37,10 @@ void        menu_func(t_page *menu, int *status);
 void        menu_routine(t_page *menu);
 t_page      *menu_init(void);
 
+t_page      *game_init(void);
+void        game_routine(t_page *game);
+void        game_func(t_page *game, int *status, t_bots *bot);
+
 extern      t_bots_seq         bots_tab[NSEQ];
 
 #endif

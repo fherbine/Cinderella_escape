@@ -32,6 +32,7 @@ typedef struct  s_bots
     BITMAP      *buffer;
     float       pos_x, pos_y;
     float       virt_x, virt_y;
+    float       dest_x, dest_y;
     int         cur_img;
 }               t_bots;
 
