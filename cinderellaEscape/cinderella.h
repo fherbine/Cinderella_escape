@@ -33,6 +33,10 @@ t_bots      *new_bot(t_bots_seq seq, int x, int y, t_page *game);
 void        refresh_bot(t_bots *bot, int dest_x, int dest_y, t_page *game);
 
 
+void        menu_func(t_page *menu, int *status);
+void        menu_routine(t_page *menu);
+t_page      *menu_init(void);
+
 extern      t_bots_seq         bots_tab[NSEQ];
 
 #endif

@@ -50,8 +50,9 @@ t_bots  *new_bot(t_bots_seq seq, int x, int y, t_page *game)
     bot->buffer = create_bitmap(SCREEN_W, SCREEN_H);
     clear_bitmap(bot->buffer);
     printf("\n%d %d", bot->seq.sx, bot->seq.sy);
-    blit(bot->seq.img[0], bot->buffer, 0, 0, bot->pos_x, bot->pos_y, bot->seq.sx, bot->seq.sy);
-    masked_blit(bot->buffer, game->win, 0, 0, 0, 0, SCREEN_W, SCREEN_H);
+    //blit(bot->seq.img[0], bot->buffer, 0, 0, bot->pos_x, bot->pos_y, bot->seq.sx, bot->seq.sy);
+   // draw_sprite(game->win, bot->buffer,bot->pos_x, bot->pos_y);
+   // masked_blit(bot->buffer, game->win, 0, 0, 0, 0, SCREEN_W, SCREEN_H);
     return (bot);
 }
 
@@ -59,7 +60,7 @@ void refresh_bot(t_bots *bot, int dest_x, int dest_y, t_page *game)
 {
     int cur_x = bot->virt_x, cur_y = bot->virt_y;
     int i = 0;
-    text_mode(-1);
+    //text_mode(-1);
     /*while(cur_x < dest_x)
     {
         clear_bitmap(bot->buffer);

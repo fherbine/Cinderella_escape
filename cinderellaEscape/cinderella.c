@@ -9,18 +9,7 @@ void game_func(t_page *game, int *status, t_bots *bot)
     refresh_bot(bot, 3, 0, game);
 }
 
-void menu_func(t_page *menu, int *status)
-{
-    menu->buts[0] = buttonStatusUpdate(menu->buts[0]);
-    if ((menu->buts[0]).but_status == 2)
-      *status = 1;
-    menu->win = put_box(menu->buts[0], menu->win);
 
-    menu->buts[1] = buttonStatusUpdate(menu->buts[1]);
-    if ((menu->buts[1]).but_status == 2)
-      *status = 2;
-    menu->win= put_box(menu->buts[1], menu->win);
-}
 
 void cind(void)
 {
@@ -28,39 +17,33 @@ void cind(void)
     int     *status;
     BITMAP  *win;
     t_page  *game;
-    t_page  *menu;
+    t_page  *menu = menu_init();
 
 
 
     status = &st_val;
     if (!(game = (t_page *)malloc(sizeof(t_page))))
         exit(EXIT_FAILURE);
-    if (!(menu = (t_page *)malloc(sizeof(t_page))))
-        exit(EXIT_FAILURE);
-    if (!(menu->buts = (t_box *)malloc(sizeof(t_box) * 10))) /// 10 !!
-        exit(EXIT_FAILURE);
+
     if (!(game->buts = (t_box *)malloc(sizeof(t_box) * 10))) /// 10 !!
         exit(EXIT_FAILURE);
 
 
     init_all();
 
+    menu_routine(menu);
+
     game->win = create_bitmap(SCREEN_W, SCREEN_H);
-    menu->win = create_bitmap(SCREEN_W, SCREEN_H);
+
 
     ///-----
-    clear_bitmap(menu->win);
+
     clear_bitmap(game->win);
     game->win = backgroundColor(WHITE, game->win);
-    menu->win = backgroundColor(WHITE, menu->win);
 
-    (menu->buts)[0] = newButton(200, 400, "Nouvelle partie");
-    (menu->buts)[1] = newButton(300, 500, "Quitter");
     (game->buts)[0] = newButton(675, 20, "Menu");
-    menu->win = put_box(menu->buts[0], menu->win);
-    menu->win = put_box(menu->buts[1], menu->win);
+
     game->win = put_box(game->buts[0], game->win);
-    menu->win = add_alph_bmp(menu->win, "imgs/banner.bmp", 200, 90, 300, 20);
     win = menu->win;
     blit(win, screen, 0, 0, 0, 0, SCREEN_W, SCREEN_H);
     /// ------
@@ -77,15 +60,24 @@ void cind(void)
 
     while (!key[KEY_ENTER])
     {
-        win = (*status == 0) ? menu->win : game->win;
         if (*status == 0)
             menu_func(menu, status);
 
         if (*status == 1)
+        {
+            printf("tutu");
             game_func(game, status, bot1);
+            printf("tutu");
+            if (*status == 0)
+            {
+                menu_routine(menu);
+            }
+        }
+
 
         if (*status == 2)
             leave_game(game, menu);
+        win = (*status == 0) ? menu->win : game->win;
         blit(win, screen, 0, 0, 0, 0, SCREEN_W, SCREEN_H);
     }
 }
