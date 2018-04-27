@@ -22,7 +22,7 @@ typedef struct  s_bots_seq
 {
     char        *path;
     int         nimg;
-    int         sx, sy;
+    float        sx, sy;
     BITMAP      **img;
 }               t_bots_seq;
 
@@ -30,8 +30,8 @@ typedef struct  s_bots
 {
     t_bots_seq  seq;
     BITMAP      *buffer;
-    int         pos_x, pos_y;
-    int         virt_x, virt_y;
+    float       pos_x, pos_y;
+    float       virt_x, virt_y;
     int         cur_img;
 }               t_bots;
 

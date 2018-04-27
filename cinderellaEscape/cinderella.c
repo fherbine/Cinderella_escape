@@ -66,9 +66,7 @@ void cind(void)
 
         if (*status == 1)
         {
-            printf("tutu");
             game_func(game, status, bot1);
-            printf("tutu");
             if (*status == 0)
             {
                 menu_routine(menu);
