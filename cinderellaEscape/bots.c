@@ -13,14 +13,14 @@ static t_bots_seq  init_seq(t_bots_seq seq)
 
     seq.img[seq.nimg] = NULL;
     printf("%d %d", i, seq.nimg);
-    //while (i < seq.nimg)
-   // {
-  //      seq.img[i] = create_bitmap(seq.sx, seq.sy);
-   //     i++;
-   //     clear_bitmap(seq.img[i]);
-   //     blit(tmp, seq.img[i], px, 0, 0, 0, seq.sx, seq.sy);
-   //     px += seq.sx;
-   // }
+    while (i < seq.nimg)
+   {
+        seq.img[i] = create_bitmap(seq.sx, seq.sy);
+      clear_bitmap(seq.img[i]);
+        blit(tmp, seq.img[i], px, 0, 0, 0, seq.sx, seq.sy);
+        i++;
+        px += seq.sx;
+    }
     destroy_bitmap(tmp);
     return(seq);
 }
