@@ -39,13 +39,9 @@ void cind(void)
                 menu_routine(menu);
         }
 
-
-        printf("ll\n");
         if (*status == 2)
             leave_game(game, menu);
         win = (*status == 0) ? menu->win : game->win;
-        printf("1\n");
         blit(win, screen, 0, 0, 0, 0, SCREEN_W, SCREEN_H);
-        printf("2\n");
     }
 }
