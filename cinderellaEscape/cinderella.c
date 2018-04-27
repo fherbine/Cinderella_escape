@@ -6,7 +6,8 @@ void game_func(t_page *game, int *status, t_bots *bot)
     if ((game->buts[0]).but_status == 2)
       *status = 0;
     game->win = put_box(game->buts[0], game->win);
-    refresh_bot(bot, 3, 0, game);
+    if (key[KEY_ENTER])
+        refresh_bot(bot, 10, 0, game);
 }
 
 
@@ -58,7 +59,7 @@ void cind(void)
     bot1 = new_bot(bots_tab[0], 0, 0, game);
     /// ----
 
-    while (!key[KEY_ENTER])
+    while (!key[KEY_ESC])
     {
         if (*status == 0)
             menu_func(menu, status);

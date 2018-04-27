@@ -12,7 +12,7 @@ BITMAP      *backgroundColor(int color, BITMAP *buff)
     BITMAP  *buffer;
 
     buffer = create_bitmap(SCREEN_W, SCREEN_H);
-    clear_bitmap(buffer);
+    //clear_bitmap(buffer);
     rectfill(buffer, 0, 0, SCREEN_W, SCREEN_H, color);
     blit(buffer, buff, 0, 0, 0, 0, SCREEN_W, SCREEN_H);
     destroy_bitmap(buffer);
@@ -47,7 +47,7 @@ BITMAP  *put_box(t_box box, BITMAP *buff)
     BITMAP  *buffer;
 
     buffer = create_bitmap(wdth + 1, height + 1);
-    clear_bitmap(buffer);
+    //clear_bitmap(buffer);
     if (box.bg_color != NONE)
         rectfill(buffer, 0, 0, wdth, height, box.bg_color);
     if (box.borders != NONE)
