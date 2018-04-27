@@ -62,28 +62,48 @@ void refresh_bot(t_bots *bot, float dest_x, float dest_y, t_page *game)
 {
     float cur_x = bot->virt_x, cur_y = bot->virt_y;
     int i = 0;
-    //text_mode(-1);
     while(cur_x < dest_x)
     {
         clear_bitmap(bot->buffer);
         blit(game->win, bot->buffer, 0, 0, 0, 0, SCREEN_W,SCREEN_H);
-        draw_sprite(bot->buffer, bot->seq.img[i],(int)bot->pos_x, (int)bot->pos_y);
+        rotate_sprite(bot->buffer, bot->seq.img[i], (int)bot->pos_x, (int)bot->pos_y, itofix(0));
         blit(bot->buffer,screen,  0, 0, 0, 0, SCREEN_W,SCREEN_H);
         bot->virt_x += 0.01;
         cur_x += 0.01;
         bot->pos_x += bot->seq.sx / 100;
         i = (i == 3) ? 0 : i + 1;
     }
-   /* while(cur_x < dest_x)
+    while(cur_x > dest_x)
     {
-
+        clear_bitmap(bot->buffer);
+        blit(game->win, bot->buffer, 0, 0, 0, 0, SCREEN_W,SCREEN_H);
+        rotate_sprite(bot->buffer, bot->seq.img[i], (int)bot->pos_x, (int)bot->pos_y, itofix(128));
+        blit(bot->buffer,screen,  0, 0, 0, 0, SCREEN_W,SCREEN_H);
+        bot->virt_x -= 0.01;
+        cur_x -= 0.01;
+        bot->pos_x -= bot->seq.sx / 100;
+        i = (i == 3) ? 0 : i + 1;
     }
     while(cur_y < dest_y)
     {
-
+        clear_bitmap(bot->buffer);
+        blit(game->win, bot->buffer, 0, 0, 0, 0, SCREEN_W,SCREEN_H);
+        rotate_sprite(bot->buffer, bot->seq.img[i], (int)bot->pos_x, (int)bot->pos_y, itofix(64));
+        blit(bot->buffer,screen,  0, 0, 0, 0, SCREEN_W,SCREEN_H);
+        bot->virt_y += 0.01;
+        cur_y += 0.01;
+        bot->pos_y += bot->seq.sy / 100;
+        i = (i == 3) ? 0 : i + 1;
     }
-    while(cur_y < dest_y)
+    while(cur_y > dest_y)
     {
-
-    }*/
+        clear_bitmap(bot->buffer);
+        blit(game->win, bot->buffer, 0, 0, 0, 0, SCREEN_W,SCREEN_H);
+        rotate_sprite(bot->buffer, bot->seq.img[i], (int)bot->pos_x, (int)bot->pos_y, itofix(192));
+        blit(bot->buffer,screen,  0, 0, 0, 0, SCREEN_W,SCREEN_H);
+        bot->virt_y -= 0.01;
+        cur_y -= 0.01;
+        bot->pos_y -= bot->seq.sy / 100;
+        i = (i == 3) ? 0 : i + 1;
+    }
 }

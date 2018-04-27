@@ -7,7 +7,7 @@ void game_func(t_page *game, int *status, t_bots *bot)
       *status = 0;
     game->win = put_box(game->buts[0], game->win);
     if (key[KEY_ENTER])
-        refresh_bot(bot, 10, 0, game);
+        refresh_bot(bot, 0, 0, game);
 }
 
 
@@ -56,7 +56,7 @@ void cind(void)
     /// -----
     t_bots *bot1;
 
-    bot1 = new_bot(bots_tab[0], 0, 0, game);
+    bot1 = new_bot(bots_tab[0], 0, 10, game);
     /// ----
 
     while (!key[KEY_ESC])
