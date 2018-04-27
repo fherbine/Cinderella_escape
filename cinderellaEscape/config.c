@@ -1,5 +1,6 @@
 #include "cinderella.h"
 
+
 /**
  *      This file contain configuration functions.
 **/
@@ -31,5 +32,6 @@ int     init_all(void)
     }
 
     show_mouse(screen);
+    init_all_seq();
     return (1);
 }

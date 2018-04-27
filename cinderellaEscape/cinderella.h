@@ -28,7 +28,11 @@ BITMAP      *add_reg_bmp(BITMAP *curr, char *path, int pic_w, int pic_h, int des
 
 void        leave_game(t_page *game, t_page *menu);
 
-t_bots_seq  *init_all_seq(t_bots_seq *seqs);
-t_bots      new_bot(t_bots_seq seq, int x, int y);
+void        init_all_seq(void);
+t_bots      *new_bot(t_bots_seq seq, int x, int y);
+t_bots      *refresh_bot(t_bots *bot, int dest_x, int dest_y, t_page *game);
+
+
+extern      t_bots_seq         bots_tab[NSEQ];
 
 #endif

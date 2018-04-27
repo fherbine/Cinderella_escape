@@ -28,9 +28,11 @@ typedef struct  s_bots_seq
 
 typedef struct  s_bots
 {
-    t_bots_seq  cur_bot;
+    t_bots_seq  seq;
+    BITMAP      *buffer;
     int         pos_x, pos_y;
     int         virt_x, virt_y;
+    int         cur_img;
 }               t_bots;
 
 #endif
