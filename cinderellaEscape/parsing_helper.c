@@ -35,8 +35,11 @@ static void add_char_buf(t_text *editor, char c)
 void    read_buf(t_text *editor, t_page *game)
 {
     int key_pressed, scancode;
+    if (!keypressed())
+        return ;
     key_pressed = readkey();
     scancode = key_pressed >> 8;
+    textprintf_ex(game->win, font, editor->cx, editor->cy + 8, BLACK, WHITE, " ");
     if (scancode == KEY_LEFT && editor->cursor > 0)
     {
         editor->cursor -= 1;
@@ -45,7 +48,7 @@ void    read_buf(t_text *editor, t_page *game)
         else if (editor->cy > editor->y1)
         {
             editor->cx = editor->x2;
-            editor->cy -= 8;
+            editor->cy -= 16;
         }
     }
     else if (scancode == KEY_BACKSPACE && editor->cursor > 0)
@@ -57,7 +60,7 @@ void    read_buf(t_text *editor, t_page *game)
         else if (editor->cy > editor->y1)
         {
             editor->cx = editor->x2;
-            editor->cy -= 8;
+            editor->cy -= 16;
         }
         textprintf_ex(game->win, font, editor->cx, editor->cy, BLACK, WHITE, " ");
     }
@@ -69,7 +72,7 @@ void    read_buf(t_text *editor, t_page *game)
         else if (editor->cy < editor->y2)
         {
             editor->cx = editor->x1;
-            editor->cy += 8;
+            editor->cy += 16;
         }
     }
     else
@@ -80,9 +83,10 @@ void    read_buf(t_text *editor, t_page *game)
         if (editor->cx == editor->x2)
         {
             editor->cx = editor->x1;
-            editor->cy += 8;
+            editor->cy += 16;
         }
         else
             editor->cx += 8;
     }
+    textprintf_ex(game->win, font, editor->cx, editor->cy + 8, BLACK, WHITE, "^");
 }

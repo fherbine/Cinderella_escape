@@ -8,7 +8,7 @@ t_page  *game_init(void)
         exit(EXIT_FAILURE);
     if (!(game->buts = (t_box *)malloc(sizeof(t_box) * 10))) /// 10 !!
         exit(EXIT_FAILURE);
-        return(game);
+    return(game);
 }
 
 void    clear_lvl1(t_page *game)
@@ -22,11 +22,13 @@ void    game_routine(t_page *game)
     clear_bitmap(game->win);
     game->win = backgroundColor(WHITE, game->win);
     (game->buts)[0] = newButton(675, 20, "Menu");
+    (game->buts)[1] = newButton(15, 150, "Run");
     game->win = put_box(game->buts[0], game->win);
+    game->win = put_box(game->buts[1], game->win);
 
     rect(game->win, 237, 107, 798, 598, BLACK);
-    rect(game->win, 20, 200, 220, 536, BLACK);
-    game->editor = new_txt(20, 200, 220, 536);
+    rect(game->win, 15, 190, 220, 380, BLACK);
+    game->editor = new_txt(20, 200, 220, 368);
     clear_lvl1(game);
 }
 
@@ -40,6 +42,9 @@ void game_func(t_page *game, int *status, t_bots *bot)
         return;
     }
     game->win = put_box(game->buts[0], game->win);
+
+    game->buts[1] = buttonStatusUpdate(game->buts[1]);
+    game->win = put_box(game->buts[1], game->win);
     if (key[KEY_ENTER])
         refresh_bot(bot, 0, 0, game);
     read_buf(game->editor, game);
