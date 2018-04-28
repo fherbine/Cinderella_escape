@@ -40,6 +40,7 @@ t_page      *menu_init(void);
 t_page      *game_init(void);
 void        game_routine(t_page *game);
 void        game_func(t_page *game, int *status, t_bots *bot);
+void        clear_lvl1(t_page *game);
 
 extern      t_bots_seq         bots_tab[NSEQ];
 

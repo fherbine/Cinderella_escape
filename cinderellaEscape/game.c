@@ -11,6 +11,11 @@ t_page  *game_init(void)
         return(game);
 }
 
+void    clear_lvl1(t_page *game)
+{
+    game->win = add_reg_bmp(game->win, "imgs/map1.bmp", 560, 490, 238, 108);
+}
+
 void    game_routine(t_page *game)
 {
     game->win = create_bitmap(SCREEN_W, SCREEN_H);
@@ -20,7 +25,8 @@ void    game_routine(t_page *game)
     game->win = put_box(game->buts[0], game->win);
 
     rect(game->win, 237, 107, 798, 598, BLACK);
-    game->win = add_reg_bmp(game->win, "imgs/map1.bmp", 560, 490, 238, 108);
+    rect(game->win, 20, 107, 220, 598, BLACK);
+    clear_lvl1(game);
 }
 
 void game_func(t_page *game, int *status, t_bots *bot)
