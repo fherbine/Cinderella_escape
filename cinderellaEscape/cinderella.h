@@ -10,7 +10,7 @@
 #include "maps.h"
 #include "projectStruct.h"
 
-#define NSEQ 1
+#define NSEQ 2
 
 int         init_all(void);
 
@@ -26,6 +26,7 @@ void        cind(void);
 
 BITMAP      *add_alph_bmp(BITMAP *curr, char *path, int pic_w, int pic_h, int dest_x, int dest_y);
 BITMAP      *add_reg_bmp(BITMAP *curr, char *path, int pic_w, int pic_h, int dest_x, int dest_y);
+t_elems     *new_elem(int x, int y, char *path, t_page *game);
 
 void        leave_game(t_page *game, t_page *menu);
 

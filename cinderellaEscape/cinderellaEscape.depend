@@ -26,7 +26,7 @@
 1524803012 source:c:\users\felix\desktop\cb\cind\cinderellaescape\blocks.c
 	"cinderella.h"
 
-1524937920 c:\users\felix\desktop\cb\cind\cinderellaescape\cinderella.h
+1524952621 c:\users\felix\desktop\cb\cind\cinderellaescape\cinderella.h
 	<allegro.h>
 	<stdlib.h>
 	<stdio.h>
@@ -38,12 +38,12 @@
 
 1524608243 c:\users\felix\desktop\cb\cind\cinderellaescape\colors.h
 
-1524937535 c:\users\felix\desktop\cb\cind\cinderellaescape\projectstruct.h
+1524952016 c:\users\felix\desktop\cb\cind\cinderellaescape\projectstruct.h
 
 1524799745 source:c:\users\felix\desktop\cb\cind\cinderellaescape\config.c
 	"cinderella.h"
 
-1524798672 source:c:\users\felix\desktop\cb\cind\cinderellaescape\main.c
+1524942073 source:c:\users\felix\desktop\cb\cind\cinderellaescape\main.c
 	"cinderella.h"
 
 1524783606 source:c:\users\felix\desktop\cb\cind\cinderellaescape\buttons.c
@@ -60,18 +60,18 @@
 1524863352 source:c:\users\felix\desktop\cb\cind\cinderellaescape\utils.c
 	"cinderella.h"
 
-1524938165 source:c:\users\felix\desktop\cb\cind\cinderellaescape\bots.c
+1524942538 source:c:\users\felix\desktop\cb\cind\cinderellaescape\bots.c
 	"cinderella.h"
 
 1524802173 source:c:\users\felix\desktop\cb\cind\cinderellaescape\menu.c
 	"cinderella.h"
 
-1524935477 source:c:\users\felix\desktop\cb\cind\cinderellaescape\game.c
+1524952521 source:c:\users\felix\desktop\cb\cind\cinderellaescape\game.c
 	"cinderella.h"
 
 1524935288 source:c:\users\felix\desktop\cb\cind\cinderellaescape\parsing_helper.c
 	"cinderella.h"
 
-1524937516 source:c:\users\felix\desktop\cb\cind\cinderellaescape\parser.c
+1524951903 source:c:\users\felix\desktop\cb\cind\cinderellaescape\parser.c
 	"cinderella.h"
 

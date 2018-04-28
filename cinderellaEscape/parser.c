@@ -8,7 +8,6 @@ void    exec_code(t_page *game)
     text = game->editor;
 
     current_bot = (game->bots)[0];
-    printf("\n\nbuf:%s:\ni:%d:\tn:%f:\tact:%f\n", text->buf, text->i, text->n, current_bot->dest_x);
     if ((text->buf)[text->i])
     {
         if (strcmp(&((text->buf)[text->i]), "c[") == 0)
@@ -21,11 +20,11 @@ void    exec_code(t_page *game)
         else if (text->n == -1)
             text->n = 1;
 
-        if ((text->buf)[text->i] == 'r' && current_bot->last_x + text->n <= 16)
+        if ((text->buf)[text->i] == 'r' && current_bot->last_x + text->n < 16)
             end = refresh_bot(current_bot, current_bot->last_x + text->n, current_bot->last_y, game);
         else if ((text->buf)[text->i] == 'l' && current_bot->last_x - text->n >= 0)
             end = refresh_bot(current_bot, current_bot->last_x - text->n, current_bot->last_y, game);
-        else if ((text->buf)[text->i] == 'd' && current_bot->last_y + text->n <= 14)
+        else if ((text->buf)[text->i] == 'd' && current_bot->last_y + text->n < 14)
             end = refresh_bot(current_bot, current_bot->last_x, current_bot->last_y + text->n, game);
         else if ((text->buf)[text->i] == 'u' && current_bot->last_y - text->n >= 0)
             end = refresh_bot(current_bot, current_bot->last_x, current_bot->last_y - text->n, game);
@@ -38,5 +37,11 @@ void    exec_code(t_page *game)
         text->n = (end) ? -1 : text->n;
     }
     else
+    {
+        current_bot->virt_x = round(current_bot->virt_x);
+        current_bot->virt_y = round(current_bot->virt_y);
         game->execution = 0;
+        text->i = 0;
+        text->n = -1;
+    }
 }

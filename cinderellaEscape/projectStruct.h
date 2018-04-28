@@ -42,12 +42,18 @@ typedef struct  s_bots
     int         cur_img;
 }               t_bots;
 
+typedef struct  s_elems
+{
+    int         virt_x, virt_y;
+}               t_elems;
+
 typedef struct  s_page
 {
     BITMAP      *win;
     t_box       *buts;
     t_text      *editor;
     t_bots      **bots;
+    t_elems     **elems;
     int         execution;
 }               t_page;
 
