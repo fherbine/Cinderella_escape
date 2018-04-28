@@ -15,8 +15,6 @@ void cind(void)
     game_routine(game);
 
     /// -----
-    t_bots *bot1;
-    bot1 = new_bot(bots_tab[0], 0, 10, game);
     /// ----
 
     win = menu->win;
@@ -34,7 +32,7 @@ void cind(void)
 
         if (*status == 1)
         {
-            game_func(game, status, bot1);
+            game_func(game, status);
             if (*status == 0)
                 menu_routine(menu);
         }

@@ -12,7 +12,6 @@ static t_bots_seq  init_seq(t_bots_seq seq)
     tmp = load_bitmap(seq.path, NULL);
 
     seq.img[seq.nimg] = NULL;
-    printf("%d %d", i, seq.nimg);
     while (i < seq.nimg)
    {
         seq.img[i] = create_bitmap(seq.sx, seq.sy);

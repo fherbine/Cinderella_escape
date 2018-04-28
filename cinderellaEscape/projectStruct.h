@@ -19,14 +19,8 @@ typedef struct  s_text
     int         x2, y2; // box coord2
     int         cx, cy; // cursor position
     int         cursor; // cursor position in buffer
+    int         i;
 }               t_text;
-
-typedef struct  s_page
-{
-    BITMAP      *win;
-    t_box       *buts;
-    t_text      *editor;
-}               t_page;
 
 typedef struct  s_bots_seq
 {
@@ -45,5 +39,13 @@ typedef struct  s_bots
     float       dest_x, dest_y;
     int         cur_img;
 }               t_bots;
+
+typedef struct  s_page
+{
+    BITMAP      *win;
+    t_box       *buts;
+    t_text      *editor;
+    t_bots      **bots;
+}               t_page;
 
 #endif
