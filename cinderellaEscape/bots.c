@@ -65,10 +65,12 @@ void refresh_bot(t_bots *bot, float dest_x, float dest_y, t_page *game)
     bot->dest_y = dest_y;
     if(cur_x < bot->dest_x)
     {
+        destroy_bitmap(game->win);
+        game_routine(game);
         clear_bitmap(bot->buffer);
         blit(game->win, bot->buffer, 0, 0, 0, 0, SCREEN_W,SCREEN_H);
         rotate_sprite(bot->buffer, bot->seq.img[bot->cur_img], (int)bot->pos_x, (int)bot->pos_y, itofix(0));
-        blit(bot->buffer,screen,  0, 0, 0, 0, SCREEN_W,SCREEN_H);
+        blit(bot->buffer, game->win,  0, 0, 0, 0, SCREEN_W,SCREEN_H);
         bot->virt_x += 0.01;
         cur_x += 0.01;
         bot->pos_x += bot->seq.sx / 100;
@@ -76,10 +78,12 @@ void refresh_bot(t_bots *bot, float dest_x, float dest_y, t_page *game)
     }
     if(cur_x > bot->dest_x)
     {
+        destroy_bitmap(game->win);
+        game_routine(game);
         clear_bitmap(bot->buffer);
         blit(game->win, bot->buffer, 0, 0, 0, 0, SCREEN_W,SCREEN_H);
         rotate_sprite(bot->buffer, bot->seq.img[bot->cur_img], (int)bot->pos_x, (int)bot->pos_y, itofix(128));
-        blit(bot->buffer,screen,  0, 0, 0, 0, SCREEN_W,SCREEN_H);
+        blit(bot->buffer, game->win,  0, 0, 0, 0, SCREEN_W,SCREEN_H);
         bot->virt_x -= 0.01;
         cur_x -= 0.01;
         bot->pos_x -= bot->seq.sx / 100;
@@ -87,10 +91,12 @@ void refresh_bot(t_bots *bot, float dest_x, float dest_y, t_page *game)
     }
     if(cur_y < bot->dest_y)
     {
+        destroy_bitmap(game->win);
+        game_routine(game);
         clear_bitmap(bot->buffer);
         blit(game->win, bot->buffer, 0, 0, 0, 0, SCREEN_W,SCREEN_H);
         rotate_sprite(bot->buffer, bot->seq.img[bot->cur_img], (int)bot->pos_x, (int)bot->pos_y, itofix(64));
-        blit(bot->buffer,screen,  0, 0, 0, 0, SCREEN_W,SCREEN_H);
+        blit(bot->buffer, game->win,  0, 0, 0, 0, SCREEN_W,SCREEN_H);
         bot->virt_y += 0.01;
         cur_y += 0.01;
         bot->pos_y += bot->seq.sy / 100;

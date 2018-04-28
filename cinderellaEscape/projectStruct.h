@@ -18,6 +18,12 @@ typedef struct  s_page
     t_box       *buts;
 }               t_page;
 
+typedef struct  s_text
+{
+    char        buf[256];
+    int         sx, sy;
+}               t_text;
+
 typedef struct  s_bots_seq
 {
     char        *path;
