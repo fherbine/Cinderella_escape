@@ -42,6 +42,8 @@ void    read_buf(t_text *editor, t_page *game)
     textprintf_ex(game->win, font, editor->cx, editor->cy + 8, BLACK, WHITE, " ");
     if (scancode == KEY_LEFT && editor->cursor > 0)
     {
+        if (editor->cursor <= 0)
+            return ;
         editor->cursor -= 1;
         if (editor->cx > editor->x1)
             editor->cx -= 8;
@@ -53,6 +55,8 @@ void    read_buf(t_text *editor, t_page *game)
     }
     else if (scancode == KEY_BACKSPACE && editor->cursor > 0)
     {
+        if (editor->cursor <= 0)
+            return ;
         editor->cursor -= 1;
         add_char_buf(editor, ' ');
         if (editor->cx > editor->x1)
@@ -66,6 +70,8 @@ void    read_buf(t_text *editor, t_page *game)
     }
     else if (scancode == KEY_RIGHT && editor->cursor < 254)
     {
+        if (editor->cursor >= 254)
+            return ;
         editor->cursor += 1;
         if (editor->cx < editor->x2)
             editor->cx += 8;
@@ -77,6 +83,8 @@ void    read_buf(t_text *editor, t_page *game)
     }
     else
     {
+        if (editor->cursor >= 254)
+            return ;
         add_char_buf(editor, (char)key_pressed);
         editor->cursor += 1;
         textprintf_ex(game->win, font, editor->cx, editor->cy, BLACK, WHITE, "%c", (char)key_pressed);
