@@ -54,7 +54,7 @@ typedef struct  s_page
     t_text      *editor;
     t_bots      **bots;
     t_elems     **elems;
-    int         execution;
+    int         execution, lvl;
 }               t_page;
 
 #endif

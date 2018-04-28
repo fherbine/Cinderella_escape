@@ -42,6 +42,6 @@ t_elems *new_elem(int x, int y, char *path, t_page *game)
         exit(EXIT_FAILURE);
     elem->virt_x = x;
     elem->virt_y = y;
-    add_reg_bmp(game->win, "imgs/finish.bmp", 35, 35, 238 + (x * 35), 108 + (y * 35));
+    add_alph_bmp(game->win, path, 35, 35, 238 + (x * 35), 108 + (y * 35));
     return (elem);
 }

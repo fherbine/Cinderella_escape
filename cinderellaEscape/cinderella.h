@@ -29,6 +29,7 @@ BITMAP      *add_reg_bmp(BITMAP *curr, char *path, int pic_w, int pic_h, int des
 t_elems     *new_elem(int x, int y, char *path, t_page *game);
 
 void        leave_game(t_page *game, t_page *menu);
+int         check_all_be_col(t_page *game);
 
 void        init_all_seq(void);
 t_bots      *new_bot(t_bots_seq seq, float x, float y, t_page *game);

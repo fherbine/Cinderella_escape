@@ -29,10 +29,7 @@ void    exec_code(t_page *game)
         else if ((text->buf)[text->i] == 'u' && current_bot->last_y - text->n >= 0)
             end = refresh_bot(current_bot, current_bot->last_x, current_bot->last_y - text->n, game);
         else
-        {
-            printf("tuut\n");
             end = 1;
-        }
         text->i += (end) ? 1 : 0;
         text->n = (end) ? -1 : text->n;
     }

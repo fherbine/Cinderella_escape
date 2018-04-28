@@ -29,7 +29,6 @@ void    init_all_seq(void)
 {
     for(int i = 0; i < NSEQ; i++)
     {
-        printf("%s", bots_tab[i].path);
         bots_tab[i] = init_seq(bots_tab[i]);
     }
 }
@@ -51,7 +50,7 @@ t_bots  *new_bot(t_bots_seq seq, float x, float y, t_page *game)
     bot->seq = seq;
     bot->cur_img = 0;
     bot->buffer = create_bitmap(SCREEN_W, SCREEN_H);
-    clear_lvl1(game);
+    //clear_lvl(game);
     clear_bitmap(bot->buffer);
     blit(game->win, bot->buffer, 0, 0, 0, 0, SCREEN_W,SCREEN_H);
     rotate_sprite(bot->buffer, bot->seq.img[bot->cur_img], (int)bot->pos_x, (int)bot->pos_y, itofix(0));
@@ -66,7 +65,7 @@ int refresh_bot(t_bots *bot, float dest_x, float dest_y, t_page *game)
     bot->dest_y = dest_y;
     if(cur_x < bot->dest_x)
     {
-        clear_lvl1(game);
+        clear_lvl(game);
         clear_bitmap(bot->buffer);
         blit(game->win, bot->buffer, 0, 0, 0, 0, SCREEN_W,SCREEN_H);
         rotate_sprite(bot->buffer, bot->seq.img[bot->cur_img], (int)bot->pos_x, (int)bot->pos_y, itofix(0));
@@ -78,7 +77,7 @@ int refresh_bot(t_bots *bot, float dest_x, float dest_y, t_page *game)
     }
     if(cur_x > bot->dest_x)
     {
-        clear_lvl1(game);
+        clear_lvl(game);
         clear_bitmap(bot->buffer);
         blit(game->win, bot->buffer, 0, 0, 0, 0, SCREEN_W,SCREEN_H);
         rotate_sprite(bot->buffer, bot->seq.img[bot->cur_img], (int)bot->pos_x, (int)bot->pos_y, itofix(128));
@@ -90,8 +89,8 @@ int refresh_bot(t_bots *bot, float dest_x, float dest_y, t_page *game)
     }
     if(cur_y < bot->dest_y)
     {
-        clear_lvl1(game);
-        clear_bitmap(bot->buffer);
+        clear_lvl(game);
+        //clear_bitmap(bot->buffer);
         blit(game->win, bot->buffer, 0, 0, 0, 0, SCREEN_W,SCREEN_H);
         rotate_sprite(bot->buffer, bot->seq.img[bot->cur_img], (int)bot->pos_x, (int)bot->pos_y, itofix(64));
         blit(bot->buffer, game->win,  0, 0, 0, 0, SCREEN_W,SCREEN_H);
@@ -102,7 +101,7 @@ int refresh_bot(t_bots *bot, float dest_x, float dest_y, t_page *game)
     }
     if(cur_y > bot->dest_y)
     {
-        clear_lvl1(game);
+        clear_lvl(game);
         clear_bitmap(bot->buffer);
         blit(game->win, bot->buffer, 0, 0, 0, 0, SCREEN_W,SCREEN_H);
         rotate_sprite(bot->buffer, bot->seq.img[bot->cur_img], (int)bot->pos_x, (int)bot->pos_y, itofix(192));
@@ -112,7 +111,6 @@ int refresh_bot(t_bots *bot, float dest_x, float dest_y, t_page *game)
         bot->pos_y -= bot->seq.sy / 100;
         bot->cur_img = (bot->cur_img == 3) ? 0 : bot->cur_img + 1;
     }
-    printf("%f\n", cur_x - bot->dest_x);
     if (cur_x - bot->dest_x <= 0.01 && cur_x - bot->dest_x >= -0.01 && cur_y - bot->dest_y <= 0.01 && cur_y - bot->dest_y >= -0.01)
     {
         bot->last_x = cur_x;
