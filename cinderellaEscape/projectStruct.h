@@ -12,17 +12,21 @@ typedef struct  s_box
     int         but_status;
 }               t_box;
 
+typedef struct  s_text
+{
+    char        buf[256];
+    int         x1, y1; // box coord1
+    int         x2, y2; // box coord2
+    int         cx, cy; // cursor position
+    int         cursor; // cursor position in buffer
+}               t_text;
+
 typedef struct  s_page
 {
     BITMAP      *win;
     t_box       *buts;
+    t_text      *editor;
 }               t_page;
-
-typedef struct  s_text
-{
-    char        buf[256];
-    int         sx, sy;
-}               t_text;
 
 typedef struct  s_bots_seq
 {

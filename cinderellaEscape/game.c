@@ -25,7 +25,8 @@ void    game_routine(t_page *game)
     game->win = put_box(game->buts[0], game->win);
 
     rect(game->win, 237, 107, 798, 598, BLACK);
-    rect(game->win, 20, 107, 220, 598, BLACK);
+    rect(game->win, 20, 200, 220, 536, BLACK);
+    game->editor = new_txt(20, 200, 220, 536);
     clear_lvl1(game);
 }
 
@@ -41,4 +42,5 @@ void game_func(t_page *game, int *status, t_bots *bot)
     game->win = put_box(game->buts[0], game->win);
     if (key[KEY_ENTER])
         refresh_bot(bot, 0, 0, game);
+    read_buf(game->editor, game);
 }

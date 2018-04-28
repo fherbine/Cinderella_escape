@@ -42,6 +42,9 @@ void        game_routine(t_page *game);
 void        game_func(t_page *game, int *status, t_bots *bot);
 void        clear_lvl1(t_page *game);
 
+t_text      *new_txt(int x1, int y1, int x2, int y2);
+void        read_buf(t_text *editor, t_page *game);
+
 extern      t_bots_seq         bots_tab[NSEQ];
 
 #endif
