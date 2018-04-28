@@ -28,9 +28,11 @@ void    game_routine(t_page *game)
     clear_bitmap(game->win);
     game->win = backgroundColor(WHITE, game->win);
     (game->buts)[0] = newButton(675, 20, "Menu");
-    (game->buts)[1] = newButton(15, 150, "Run");
+    (game->buts)[1] = newButton(75, 400, "Run");
+    (game->buts)[2] = newButton(100, 150, "Pause");
     game->win = put_box(game->buts[0], game->win);
     game->win = put_box(game->buts[1], game->win);
+    game->win = put_box(game->buts[2], game->win);
 
     rect(game->win, 237, 107, 798, 598, BLACK);
     rect(game->win, 15, 190, 220, 380, BLACK);
@@ -54,6 +56,11 @@ void game_func(t_page *game, int *status)
     if ((game->buts[1]).but_status == 2)
         game->execution = 1;
     game->win = put_box(game->buts[1], game->win);
+
+    game->buts[2] = buttonStatusUpdate(game->buts[2]);
+    if ((game->buts[2]).but_status == 2)
+        game->execution ^= 1;
+    game->win = put_box(game->buts[2], game->win);
 
     if (game->execution)
         exec_code(game);
