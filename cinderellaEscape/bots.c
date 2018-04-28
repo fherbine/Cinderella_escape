@@ -42,6 +42,8 @@ t_bots  *new_bot(t_bots_seq seq, float x, float y, t_page *game)
         exit(EXIT_FAILURE);
     bot->virt_x = x;
     bot->virt_y = y;
+    bot->last_x = x;
+    bot->last_y = y;
     bot->dest_x = x;
     bot->dest_y = y;
     bot->pos_x = 238 + (x * 35);
@@ -57,7 +59,7 @@ t_bots  *new_bot(t_bots_seq seq, float x, float y, t_page *game)
     return (bot);
 }
 
-void refresh_bot(t_bots *bot, float dest_x, float dest_y, t_page *game)
+int refresh_bot(t_bots *bot, float dest_x, float dest_y, t_page *game)
 {
     float cur_x = bot->virt_x, cur_y = bot->virt_y;
     bot->dest_x = dest_x;
@@ -110,4 +112,12 @@ void refresh_bot(t_bots *bot, float dest_x, float dest_y, t_page *game)
         bot->pos_y -= bot->seq.sy / 100;
         bot->cur_img = (bot->cur_img == 3) ? 0 : bot->cur_img + 1;
     }
+    printf("%f\n", cur_x - bot->dest_x);
+    if (cur_x - bot->dest_x <= 0.01 && cur_x - bot->dest_x >= -0.01 && cur_y - bot->dest_y <= 0.01 && cur_y - bot->dest_y >= -0.01)
+    {
+        bot->last_x = cur_x;
+        bot->last_y = cur_y;
+        return (1);
+    }
+    return (0);
 }

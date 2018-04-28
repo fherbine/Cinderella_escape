@@ -10,6 +10,7 @@ t_page  *game_init(void)
         exit(EXIT_FAILURE);
     if (!(game->bots = (t_bots **)malloc(sizeof(t_bots *) * 20))) /// 20
         exit(EXIT_FAILURE);
+        game->execution = 0;
     return(game);
 }
 
@@ -31,8 +32,8 @@ void    game_routine(t_page *game)
     rect(game->win, 237, 107, 798, 598, BLACK);
     rect(game->win, 15, 190, 220, 380, BLACK);
     game->editor = new_txt(20, 200, 220, 368);
-    (game->bots)[0] = new_bot(bots_tab[0], 0, 10, game);
     clear_lvl1(game);
+    (game->bots)[0] = new_bot(bots_tab[0], 0, 10, game);
 }
 
 void game_func(t_page *game, int *status)
@@ -47,7 +48,13 @@ void game_func(t_page *game, int *status)
     game->win = put_box(game->buts[0], game->win);
 
     game->buts[1] = buttonStatusUpdate(game->buts[1]);
+    if ((game->buts[1]).but_status == 2)
+        game->execution = 1;
     game->win = put_box(game->buts[1], game->win);
+
+    if (game->execution)
+        exec_code(game);
+
     if (key[KEY_ENTER])
         refresh_bot((game->bots)[0], 0, 0, game);
     read_buf(game->editor, game);

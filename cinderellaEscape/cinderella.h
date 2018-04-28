@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <math.h>
 #include "colors.h"
 #include "maps.h"
 #include "projectStruct.h"
@@ -30,7 +31,7 @@ void        leave_game(t_page *game, t_page *menu);
 
 void        init_all_seq(void);
 t_bots      *new_bot(t_bots_seq seq, float x, float y, t_page *game);
-void        refresh_bot(t_bots *bot, float dest_x, float dest_y, t_page *game);
+int         refresh_bot(t_bots *bot, float dest_x, float dest_y, t_page *game);
 
 
 void        menu_func(t_page *menu, int *status);
@@ -44,6 +45,8 @@ void        clear_lvl1(t_page *game);
 
 t_text      *new_txt(int x1, int y1, int x2, int y2);
 void        read_buf(t_text *editor, t_page *game);
+
+void        exec_code(t_page *game);
 
 extern      t_bots_seq         bots_tab[NSEQ];
 

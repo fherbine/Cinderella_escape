@@ -8,6 +8,8 @@ static void initial_fill(t_text *editor)
         editor->buf[i] = ' ';
     }
     editor->buf[255] = '\0';
+    editor->n = -1;
+    editor->i = 0;
 }
 
 t_text      *new_txt(int x1, int y1, int x2, int y2)
