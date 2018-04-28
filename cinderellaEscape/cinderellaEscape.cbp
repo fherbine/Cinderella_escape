@@ -38,6 +38,9 @@
 			<Option compilerVar="CC" />
 			<Option target="Debug" />
 		</Unit>
+		<Unit filename="bots.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="buttons.c">
 			<Option compilerVar="CC" />
 			<Option target="Debug" />
@@ -55,10 +58,16 @@
 			<Option compilerVar="CC" />
 			<Option target="Debug" />
 		</Unit>
+		<Unit filename="game.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="maps.h" />
+		<Unit filename="menu.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="pics.c">
 			<Option compilerVar="CC" />
 		</Unit>
