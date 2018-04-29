@@ -1,5 +1,8 @@
-# Cinderella_escape
-Game using allegro
+# Cinderella Escape
+
+![cind](https://user-images.githubusercontent.com/32856358/39409720-55ae8144-4bec-11e8-92c5-dce6ecc016f7.png)
+
+Cinderella Escape is an educational video game using Allegro 4.
 
 ## HOW TO COMPILE:
 
@@ -7,8 +10,8 @@ Game using allegro
 
 ## GAME SYNOPSIS:
 
- Cinderella tried to runaway from an unbearable during 3 levels of different
-difficulties, and at the final level she danse with the prince.
+ Cinderella tried to runaway from an unbearable step mother during 3 levels of different
+difficulties, and at the final level she marry the prince.
 
 ## NOTES:
 
