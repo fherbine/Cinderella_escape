@@ -39,7 +39,7 @@ typedef struct  s_bots
     float       virt_x, virt_y;
     float       last_x, last_y;
     float       dest_x, dest_y;
-    int         cur_img;
+    float       cur_img;
 }               t_bots;
 
 typedef struct  s_elems
