@@ -119,8 +119,5 @@ void game_func(t_page *game, int *status)
         allegro_message("You lose at level %d", game->lvl);
         game_routine(game);
     }
-
-    if (key[KEY_ENTER])
-        refresh_bot((game->bots)[0], 0, 10, game);
     read_buf(game->editor, game);
 }
