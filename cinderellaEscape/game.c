@@ -54,6 +54,8 @@ void    game_routine(t_page *game)
     game->win = put_box(game->buts[1], game->win);
     game->win = put_box(game->buts[2], game->win);
 
+    game->win = add_alph_bmp(game->win, "imgs/banner.bmp", 200, 90, 10, 10);
+    textprintf_ex(game->win, font, 20, 120, BLACK, WHITE, "LEVEL: %d", game->lvl);
     rect(game->win, 237, 107, 798, 598, BLACK);
     rect(game->win, 15, 190, 220, 380, BLACK);
     game->editor = new_txt(20, 200, 220, 368);
