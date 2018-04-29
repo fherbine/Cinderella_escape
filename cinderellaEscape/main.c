@@ -4,7 +4,7 @@ t_bots_seq         bots_tab[NSEQ] =
 {
     // path              nimg wdth height
     {"imgs/cind_right.bmp", 4, 35, 35},
-    {"imgs/finish.bmp",     1, 35, 35}
+    {"imgs/prince.bmp",     4, 35, 35}
 };
 
 static void test()

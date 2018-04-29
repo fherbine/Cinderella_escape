@@ -12,6 +12,8 @@ void    exec_code(t_page *game)
     {
         if (strcmp(&((text->buf)[text->i]), "c[") == 0)
             current_bot = (game->bots)[0];
+        if (strcmp(&((text->buf)[text->i]), "p[") == 0 && game->lvl == 2)
+            current_bot = (game->bots)[1];
         if (text->n == -1 && strchr("123456789", (text->buf)[text->i + 1]))
         {
             text->n = atoi(&((text->buf)[text->i + 1]));
