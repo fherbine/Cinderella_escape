@@ -27,7 +27,10 @@ void cind(void)
         {
             menu_func(menu, status);
             if (*status == 1)
+            {
+                game->lvl = 1;
                 game_routine(game);
+            }
         }
 
         if (*status == 1)
