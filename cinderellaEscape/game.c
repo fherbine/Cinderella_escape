@@ -76,6 +76,7 @@ void    game_routine(t_page *game)
     if (game->lvl == 2)
     {
         (game->bots)[0] = new_bot(bots_tab[0], 0, 5, game);
+        (game->bots)[1] = new_bot(bots_tab[0], 0, 7, game);
     }
     if (game->lvl == 3)
     {
