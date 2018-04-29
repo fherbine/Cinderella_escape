@@ -1,4 +1,7 @@
-# Cinderella_escape
+# Cinderella Escape
+
+![cind](https://user-images.githubusercontent.com/32856358/39409720-55ae8144-4bec-11e8-92c5-dce6ecc016f7.png)
+
 Game using allegro
 
 ## HOW TO COMPILE:
