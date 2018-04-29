@@ -11,7 +11,7 @@ void cind(void)
 
     init_all();
 
-    menu_routine(menu);
+    menu_routine(menu, game);
     game_routine(game);
 
     /// -----
@@ -25,19 +25,21 @@ void cind(void)
     {
         if (*status == 0)
         {
-            menu_func(menu, status);
+            menu_func(menu, game, status);
             if (*status == 1)
             {
                 game->lvl = 1;
                 game_routine(game);
             }
+            if (*status == 3)
+                game_routine(game);
         }
 
-        if (*status == 1)
+        if (*status == 1 || *status == 3)
         {
             game_func(game, status);
             if (*status == 0)
-                menu_routine(menu);
+                menu_routine(menu, game);
         }
 
         if (*status == 2)

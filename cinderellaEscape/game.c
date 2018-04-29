@@ -13,7 +13,7 @@ t_page  *game_init(void)
     if (!(game->elems = (t_elems **)malloc(sizeof(t_elems *) * 20))) /// 20
         exit(EXIT_FAILURE);
     game->execution = 0;
-    game->lvl = 1;
+    game->lvl = 0;
     return(game);
 }
 
@@ -33,6 +33,17 @@ void    clear_lvl(t_page *game)
     if (game->lvl == 2)
     {
         game->win = add_reg_bmp(game->win, "imgs/map2.bmp", 560, 490, 238, 108);
+        (game->elems)[0] = new_elem(15, 13, "imgs/finish.bmp", game);
+        (game->elems)[1] = new_elem(10, 10, "imgs/banana.bmp", game);
+        (game->elems)[2] = new_elem(5, 10, "imgs/banana.bmp", game);
+        (game->elems)[3] = new_elem(3, 5, "imgs/banana.bmp", game);
+        (game->elems)[4] = new_elem(12, 2, "imgs/banana.bmp", game);
+        (game->elems)[5] = NULL;
+    }
+
+    if (game->lvl == 3)
+    {
+        game->win = add_reg_bmp(game->win, "imgs/map1.bmp", 560, 490, 238, 108);
         (game->elems)[0] = new_elem(15, 13, "imgs/finish.bmp", game);
         (game->elems)[1] = new_elem(10, 10, "imgs/banana.bmp", game);
         (game->elems)[2] = new_elem(5, 10, "imgs/banana.bmp", game);
@@ -66,6 +77,10 @@ void    game_routine(t_page *game)
     {
         (game->bots)[0] = new_bot(bots_tab[0], 0, 5, game);
     }
+    if (game->lvl == 3)
+    {
+        (game->bots)[0] = new_bot(bots_tab[0], 0, 5, game);
+    }
 }
 
 void game_func(t_page *game, int *status)
@@ -95,6 +110,7 @@ void game_func(t_page *game, int *status)
     {
         allegro_message("You pass level %d !", game->lvl);
         game->lvl += 1;
+        free_elems(game->elems);
         destroy_bitmap(game->win);
         game_routine(game);
     }

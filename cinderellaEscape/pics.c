@@ -34,7 +34,17 @@ BITMAP *add_alph_bmp(BITMAP *curr, char *path, int pic_w, int pic_h, int dest_x,
     return(curr);
 }
 
-t_elems *new_elem(int x, int y, char *path, t_page *game)
+void    free_elems(t_elems **tab)
+{
+    int i = 0;
+    while(tab[i])
+    {
+        free(tab[i]);
+        i++;
+    }
+}
+
+t_elems *new_elem(float x, float y, char *path, t_page *game)
 {
     t_elems *elem;
 

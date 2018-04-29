@@ -33,4 +33,11 @@ int check_all_be_col(t_page *game)
         if (check_be_col(game->bots[0], game->elems, 0, 1))
             return (1);
     }
+    else if (game->lvl == 2)
+    {
+        if (check_be_col(game->bots[0], game->elems, 1, 5))
+            return (-1);
+        if (check_be_col(game->bots[0], game->elems, 0, 1))
+            return (1);
+    }
 }

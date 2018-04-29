@@ -26,7 +26,8 @@ void        cind(void);
 
 BITMAP      *add_alph_bmp(BITMAP *curr, char *path, int pic_w, int pic_h, int dest_x, int dest_y);
 BITMAP      *add_reg_bmp(BITMAP *curr, char *path, int pic_w, int pic_h, int dest_x, int dest_y);
-t_elems     *new_elem(int x, int y, char *path, t_page *game);
+t_elems     *new_elem(float x, float y, char *path, t_page *game);
+void        free_elems(t_elems **tab);
 
 void        leave_game(t_page *game, t_page *menu);
 int         check_all_be_col(t_page *game);
@@ -36,8 +37,8 @@ t_bots      *new_bot(t_bots_seq seq, float x, float y, t_page *game);
 int         refresh_bot(t_bots *bot, float dest_x, float dest_y, t_page *game);
 
 
-void        menu_func(t_page *menu, int *status);
-void        menu_routine(t_page *menu);
+void        menu_func(t_page *menu, t_page *game, int *status);
+void        menu_routine(t_page *menu, t_page *game);
 t_page      *menu_init(void);
 
 t_page      *game_init(void);

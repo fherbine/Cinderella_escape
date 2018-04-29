@@ -44,7 +44,7 @@ typedef struct  s_bots
 
 typedef struct  s_elems
 {
-    int         virt_x, virt_y;
+    float         virt_x, virt_y;
 }               t_elems;
 
 typedef struct  s_page
