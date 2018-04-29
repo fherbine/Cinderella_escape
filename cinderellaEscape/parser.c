@@ -30,6 +30,8 @@ void    exec_code(t_page *game)
             end = refresh_bot(current_bot, current_bot->last_x, current_bot->last_y + text->n, game);
         else if ((text->buf)[text->i] == 'u' && current_bot->last_y - text->n >= 0)
             end = refresh_bot(current_bot, current_bot->last_x, current_bot->last_y - text->n, game);
+        else if ((text->buf)[text->i] == 'R')
+            text->i = 0;
         else
             end = 1;
         text->i += (end) ? 1 : 0;
