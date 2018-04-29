@@ -2,7 +2,6 @@
 
 void    leave_game(t_page *game, t_page *menu)
 {
-    printf("ll2");
     free(menu->buts);
     free(game->buts);
     // destroy_bitmap(game->win);

@@ -29,6 +29,7 @@ void    clear_lvl(t_page *game)
         (game->elems)[4] = new_elem(12, 2, "imgs/banana.bmp", game);
         (game->elems)[5] = NULL;
     }
+
     if (game->lvl == 2)
     {
         game->win = add_reg_bmp(game->win, "imgs/map2.bmp", 560, 490, 238, 108);
@@ -57,7 +58,12 @@ void    game_routine(t_page *game)
     rect(game->win, 15, 190, 220, 380, BLACK);
     game->editor = new_txt(20, 200, 220, 368);
     clear_lvl(game);
-    (game->bots)[0] = new_bot(bots_tab[0], 0, 5, game);
+    if (game->lvl == 1)
+        (game->bots)[0] = new_bot(bots_tab[0], 0, 5, game);
+    if (game->lvl == 2)
+    {
+        (game->bots)[0] = new_bot(bots_tab[0], 0, 5, game);
+    }
 }
 
 void game_func(t_page *game, int *status)
@@ -87,6 +93,8 @@ void game_func(t_page *game, int *status)
     {
         allegro_message("You pass level %d !", game->lvl);
         game->lvl += 1;
+        destroy_bitmap(game->win);
+        game_routine(game);
     }
     else if (check_all_be_col(game) == -1)
     {
