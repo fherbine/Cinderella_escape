@@ -14,7 +14,7 @@ void    menu_routine(t_page *menu, t_page *game)
 {
     menu->win = create_bitmap(SCREEN_W, SCREEN_H);
     clear_bitmap(menu->win);
-    menu->win = backgroundColor(WHITE, menu->win);
+    menu->win = backgroundImg("imgs/bg.bmp", menu->win);
     (menu->buts)[0] = newButton(200, 375, "Nouvelle partie");
     (menu->buts)[1] = newButton(300, 450, "Quitter");
     (menu->buts)[2] = newButton(275, 300, "Reprendre");

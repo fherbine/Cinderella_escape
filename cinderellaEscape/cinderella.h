@@ -15,6 +15,7 @@
 int         init_all(void);
 
 BITMAP      *backgroundColor(int color, BITMAP *buff);
+BITMAP      *backgroundImg(char *path, BITMAP *buff);
 t_box       init_box(int x1, int y1, int x2, int y2);
 BITMAP      *put_box(t_box box, BITMAP *buff);
 void        hide_box(t_box box);

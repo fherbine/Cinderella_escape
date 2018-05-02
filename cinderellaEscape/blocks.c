@@ -19,6 +19,12 @@ BITMAP      *backgroundColor(int color, BITMAP *buff)
     return (buff);
 }
 
+BITMAP      *backgroundImg(char *path, BITMAP *buff)
+{
+    buff = add_reg_bmp(buff, path, 800, 600, 0, 0);
+    return (buff);
+}
+
 
 /// This function permit the initialization of a new box in the program
 
