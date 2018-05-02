@@ -3,7 +3,9 @@
 
 static void initial_fill(t_text *editor)
 {
-    for(int i = 0; i < 255; i++)
+    int i = 0;
+
+    for(i = 0; i < 255; i++)
     {
         editor->buf[i] = ' ';
     }

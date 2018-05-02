@@ -27,7 +27,9 @@ static t_bots_seq  init_seq(t_bots_seq seq)
 
 void    init_all_seq(void)
 {
-    for(int i = 0; i < NSEQ; i++)
+    int i = 0;
+
+    for(i = 0; i < NSEQ; i++)
     {
         bots_tab[i] = init_seq(bots_tab[i]);
     }
