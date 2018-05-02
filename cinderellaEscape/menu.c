@@ -22,7 +22,7 @@ void    menu_routine(t_page *menu, t_page *game)
     menu->win = put_box(menu->buts[1], menu->win);
     if (game->lvl)
         menu->win = put_box(menu->buts[2], menu->win);
-    menu->win = add_alph_bmp(menu->win, "imgs/banner.bmp", 200, 90, 300, 20);
+    //menu->win = add_alph_bmp(menu->win, "imgs/banner.bmp", 200, 90, 300, 20);
 }
 
 void menu_func(t_page *menu, t_page *game, int *status)

@@ -57,7 +57,7 @@ void    game_routine(t_page *game)
 {
     game->win = create_bitmap(SCREEN_W, SCREEN_H);
     clear_bitmap(game->win);
-    game->win = backgroundColor(WHITE, game->win);
+    game->win = backgroundImg("imgs/bg2.bmp", game->win);
     (game->buts)[0] = newButton(675, 20, "Menu");
     (game->buts)[1] = newButton(75, 400, "Run");
     (game->buts)[2] = newButton(50, 450, "Pause");
@@ -65,10 +65,11 @@ void    game_routine(t_page *game)
     game->win = put_box(game->buts[1], game->win);
     game->win = put_box(game->buts[2], game->win);
 
-    game->win = add_alph_bmp(game->win, "imgs/banner.bmp", 200, 90, 10, 10);
-    textprintf_ex(game->win, font, 20, 120, BLACK, WHITE, "LEVEL: %d", game->lvl);
+    game->win = add_alph_bmp(game->win, "imgs/banner2.bmp", 200, 90, 10, 10);
+    textprintf_ex(game->win, font, 20, 120, WHITE, BLACK, "LEVEL: %d", game->lvl);
     rect(game->win, 237, 107, 798, 598, BLACK);
     rect(game->win, 15, 190, 220, 380, BLACK);
+    rectfill(game->win, 15, 190, 220, 380, WHITE);
     game->editor = new_txt(20, 200, 220, 368);
     clear_lvl(game);
     if (game->lvl == 1)
