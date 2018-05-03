@@ -13,14 +13,8 @@ void cind(void)
 
     menu_routine(menu, game);
     game_routine(game);
-
-    /// -----
-    /// ----
-
     win = menu->win;
-    ///-----
     blit(win, screen, 0, 0, 0, 0, SCREEN_W, SCREEN_H);
-    /// ------
     while (!key[KEY_ESC])
     {
         if (*status == 0)
