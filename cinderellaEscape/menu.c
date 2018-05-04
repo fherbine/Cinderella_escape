@@ -62,7 +62,7 @@ void menu_func(t_page *menu, t_page *game, int *status)
 
     menu->buts[1] = buttonStatusUpdate(menu->buts[1]);
     if ((menu->buts[1]).but_status == 2)
-      *status = 2;
+      *status = -1;
     menu->win= put_box(menu->buts[1], menu->win);
 
     if (game->lvl)

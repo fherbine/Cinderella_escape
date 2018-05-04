@@ -34,7 +34,7 @@ void cind(void)
                 menu_routine(menu, game);
         }
 
-        if (*status == 2)
+        if (*status == -1)
             leave_game(game, menu);
         win = (*status == 0) ? menu->win : game->win;
         blit(win, screen, 0, 0, 0, 0, SCREEN_W, SCREEN_H);
