@@ -62,3 +62,10 @@ t_box   buttonStatusUpdate(t_box button)
     }
     return(button);
 }
+
+int get_def_click(int x1, int y1, int x2, int y2)
+{
+    if (mouse_x >= x1 && mouse_x <= x2 && mouse_y >= y1 && mouse_y <= y2 && mouse_b == 1)
+        return (1);
+    return (0);
+}

@@ -22,6 +22,9 @@ void        hide_box(t_box box);
 
 t_box       newButton(int x, int y, char *text);
 t_box       buttonStatusUpdate(t_box button);
+int         get_def_click(int x1, int y1, int x2, int y2);
+
+
 
 void        cind(void);
 
