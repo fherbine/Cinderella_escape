@@ -50,7 +50,7 @@ typedef struct  s_elems
 typedef struct  s_page
 {
     BITMAP      *win;
-    t_box       *buts;
+    t_box       *boxes;
     t_text      *editor;
     t_bots      **bots;
     t_elems     **elems;

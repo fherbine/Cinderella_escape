@@ -2,8 +2,8 @@
 
 void    leave_game(t_page *game, t_page *menu)
 {
-    free(menu->buts);
-    free(game->buts);
+    free(menu->boxes);
+    free(game->boxes);
     // destroy_bitmap(game->win);
     destroy_bitmap(menu->win);
     free(menu);

@@ -6,7 +6,7 @@ t_page  *game_init(void)
 
     if (!(game = (t_page *)malloc(sizeof(t_page))))
         exit(EXIT_FAILURE);
-    if (!(game->buts = (t_box *)malloc(sizeof(t_box) * 10))) /// 10 !!
+    if (!(game->boxes = (t_box *)malloc(sizeof(t_box) * 10))) /// 10 !!
         exit(EXIT_FAILURE);
     if (!(game->bots = (t_bots **)malloc(sizeof(t_bots *) * 20))) /// 20
         exit(EXIT_FAILURE);
@@ -58,14 +58,14 @@ void    game_routine(t_page *game)
     game->win = create_bitmap(SCREEN_W, SCREEN_H);
     clear_bitmap(game->win);
     game->win = backgroundImg("imgs/bg2.bmp", game->win);
-    (game->buts)[0] = newButton(675, 20, "Menu");
-    (game->buts)[1] = newButton(500, 20, "Aide");
-    (game->buts)[2] = newButton(75, 400, "Run");
-    (game->buts)[3] = newButton(50, 450, "Pause");
-    game->win = put_box(game->buts[0], game->win);
-    game->win = put_box(game->buts[1], game->win);
-    game->win = put_box(game->buts[2], game->win);
-    game->win = put_box(game->buts[3], game->win);
+    (game->boxes)[0] = newButton(675, 20, "Menu");
+    (game->boxes)[1] = newButton(500, 20, "Aide");
+    (game->boxes)[2] = newButton(75, 400, "Run");
+    (game->boxes)[3] = newButton(50, 450, "Pause");
+    game->win = put_box(game->boxes[0], game->win);
+    game->win = put_box(game->boxes[1], game->win);
+    game->win = put_box(game->boxes[2], game->win);
+    game->win = put_box(game->boxes[3], game->win);
 
     game->win = add_alph_bmp(game->win, "imgs/banner2.bmp", 200, 90, 10, 10);
     textprintf_ex(game->win, font, 20, 120, WHITE, BLACK, "LEVEL: %d", game->lvl);
@@ -89,28 +89,32 @@ void    game_routine(t_page *game)
 
 void game_func(t_page *game, int *status)
 {
-    game->buts[0] = buttonStatusUpdate(game->buts[0]);
-    if ((game->buts[0]).but_status == 2)
+    game->boxes[0] = buttonStatusUpdate(game->boxes[0]);
+    if ((game->boxes[0]).but_status == 2)
     {
         *status = 0;
         destroy_bitmap(game->win);
         return;
     }
-    game->win = put_box(game->buts[0], game->win);
+    game->win = put_box(game->boxes[0], game->win);
 
-    game->buts[1] = buttonStatusUpdate(game->buts[1]);
-    if ((game->buts[1]).but_status == 2){}
-    game->win = put_box(game->buts[1], game->win);
+    game->boxes[1] = buttonStatusUpdate(game->boxes[1]);
+    if ((game->boxes[1]).but_status == 2)
+    {
+        *status = 4;
+        return;
+    }
+    game->win = put_box(game->boxes[1], game->win);
 
-    game->buts[2] = buttonStatusUpdate(game->buts[2]);
-    if ((game->buts[2]).but_status == 2)
+    game->boxes[2] = buttonStatusUpdate(game->boxes[2]);
+    if ((game->boxes[2]).but_status == 2)
         game->execution = 1;
-    game->win = put_box(game->buts[2], game->win);
+    game->win = put_box(game->boxes[2], game->win);
 
-    game->buts[3] = buttonStatusUpdate(game->buts[3]);
-    if ((game->buts[3]).but_status == 2)
+    game->boxes[3] = buttonStatusUpdate(game->boxes[3]);
+    if ((game->boxes[3]).but_status == 2)
         game->execution ^= 1;
-    game->win = put_box(game->buts[3], game->win);
+    game->win = put_box(game->boxes[3], game->win);
 
     if (game->execution)
         exec_code(game);

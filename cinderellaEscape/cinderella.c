@@ -14,6 +14,7 @@ void cind(void)
 
     menu_routine(menu, game);
     game_routine(game);
+    help_routine(help);
     win = menu->win;
     blit(win, screen, 0, 0, 0, 0, SCREEN_W, SCREEN_H);
     while (!key[KEY_ESC])
@@ -33,11 +34,23 @@ void cind(void)
             game_func(game, status);
             if (*status == 0)
                 menu_routine(menu, game);
+            else if (*status == 4)
+                help_routine(help);
+        }
+
+        if (*status == 4)
+        {
+            help_func(help, status);
+            if (*status == 0)
+                menu_routine(menu, game);
         }
 
         if (*status == -1)
             leave_game(game, menu);
+
         win = (*status == 0) ? menu->win : game->win;
+        if (*status == 4)
+            win = help->win;
         blit(win, screen, 0, 0, 0, 0, SCREEN_W, SCREEN_H);
     }
 }
