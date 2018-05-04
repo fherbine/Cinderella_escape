@@ -26,6 +26,11 @@ void    help_routine(t_page *help)
     help->win = put_box(help->boxes[2], help->win);
     help->win = add_alph_bmp(help->win, "imgs/banner.bmp", 200, 90, 100, 40);
     line(help->win, 100, 140, 700, 140, BLACK);
+
+    textprintf_ex(help->win, font, 100, 170,  BLACK, WHITE, "BYTECODE:");
+    textprintf_ex(help->win, font, 100, 185,  BLACK, WHITE, "- u<x>: Monter de x cases.         - d<x>: Descendre de x cases.");
+    textprintf_ex(help->win, font, 100, 193,  BLACK, WHITE, "- r<x>: Aller a droite de x cases. - l<x>: Aller a gauche de x cases.");
+    textprintf_ex(help->win, font, 100, 193,  BLACK, WHITE, "- R: Recommencer le bytecode.");
 }
 
 void help_func(t_page *help, int *status)

@@ -27,6 +27,8 @@ void cind(void)
                 game->lvl = 1;
                 game_routine(game);
             }
+            else if (*status == 4)
+                help_routine(help);
         }
 
         if (*status == 1 || *status == 3)
