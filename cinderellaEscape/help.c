@@ -22,3 +22,24 @@ void    help_routine(t_page *help)
     help->win = put_box(help->buts[1], help->win);
     //menu->win = add_alph_bmp(menu->win, "imgs/banner.bmp", 200, 90, 300, 20);
 }
+
+void help_func(t_page *help, int *status)
+{
+    help->buts[0] = buttonStatusUpdate(help->buts[0]);
+    if ((help->buts[0]).but_status == 2)
+    {
+        *status = 0;
+        destroy_bitmap(help->win);
+        return;
+    }
+    help->win = put_box(help->buts[0], help->win);
+
+    help->buts[1] = buttonStatusUpdate(help->buts[1]);
+    if ((help->buts[1]).but_status == 2)
+    {
+        *status = 1;
+        destroy_bitmap(help->win);
+        return;
+    }
+    help->win = put_box(help->buts[1], help->win);
+}
