@@ -75,15 +75,20 @@ void    game_routine(t_page *game)
     game->editor = new_txt(20, 200, 220, 368);
     clear_lvl(game);
     if (game->lvl == 1)
+    {
         (game->bots)[0] = new_bot(bots_tab[0], 0, 5, game);
+        (game->bots)[1] = NULL;
+    }
     if (game->lvl == 2)
     {
         (game->bots)[0] = new_bot(bots_tab[0], 0, 5, game);
         (game->bots)[1] = new_bot(bots_tab[1], 0, 7, game);
+        (game->bots)[2] = NULL;
     }
     if (game->lvl == 3)
     {
         (game->bots)[0] = new_bot(bots_tab[0], 0, 5, game);
+        (game->bots)[1] = NULL;
     }
     add_alph_bmp(game->win, "imgs/rArrow.bmp", 30, 25, 45, 160);
     add_alph_bmp(game->win, "imgs/lArrow.bmp", 30, 25, 80, 160);

@@ -40,6 +40,7 @@ typedef struct  s_bots
     float       last_x, last_y;
     float       dest_x, dest_y;
     float       cur_img;
+    int         angle;
 }               t_bots;
 
 typedef struct  s_elems

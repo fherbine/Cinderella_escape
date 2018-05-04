@@ -26,7 +26,7 @@
 1525264674 source:c:\users\felix\desktop\cb\cind\cinderellaescape\blocks.c
 	"cinderella.h"
 
-1525457147 c:\users\felix\desktop\cb\cind\cinderellaescape\cinderella.h
+1525473382 c:\users\felix\desktop\cb\cind\cinderellaescape\cinderella.h
 	<allegro.h>
 	<stdlib.h>
 	<stdio.h>
@@ -38,7 +38,7 @@
 
 1524608243 c:\users\felix\desktop\cb\cind\cinderellaescape\colors.h
 
-1525457147 c:\users\felix\desktop\cb\cind\cinderellaescape\projectstruct.h
+1525472886 c:\users\felix\desktop\cb\cind\cinderellaescape\projectstruct.h
 
 1524799745 source:c:\users\felix\desktop\cb\cind\cinderellaescape\config.c
 	"cinderella.h"
