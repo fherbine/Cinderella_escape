@@ -55,6 +55,7 @@ void    clear_lvl(t_page *game)
 
 void    game_routine(t_page *game)
 {
+    printf("===================> ROUTINE\n");
     game->win = create_bitmap(SCREEN_W, SCREEN_H);
     clear_bitmap(game->win);
     game->win = backgroundImg("imgs/bg2.bmp", game->win);
@@ -127,6 +128,7 @@ void game_func(t_page *game, int *status)
 
     if (game->execution || get_one_move())
         exec_code(game);
+    //printf("(%f, %f)\n", game->bots[0]->virt_x, game->bots[0]->virt_y);
     if (check_all_be_col(game) == 1)
     {
         allegro_message("You pass level %d !", game->lvl);
