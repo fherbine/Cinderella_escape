@@ -7,6 +7,7 @@ void cind(void)
     BITMAP  *win;
     t_page  *game = game_init();
     t_page  *menu = menu_init();
+    t_page  *help = help_init();
     status = &st_val;
 
     init_all();

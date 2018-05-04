@@ -61,6 +61,9 @@
 		<Unit filename="game.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="help.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>

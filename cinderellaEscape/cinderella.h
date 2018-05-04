@@ -48,6 +48,7 @@ void        game_func(t_page *game, int *status);
 void        clear_lvl(t_page *game);
 
 t_page      *help_init(void);
+void        help_routine(t_page *help);
 
 t_text      *new_txt(int x1, int y1, int x2, int y2);
 void        read_buf(t_text *editor, t_page *game);
