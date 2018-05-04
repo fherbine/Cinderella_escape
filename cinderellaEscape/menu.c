@@ -39,7 +39,7 @@ static int display_game_lvl(t_page *menu, t_page *game, int *status, int lvl)
         {
             game->lvl = i;
             destroy_bitmap(menu->win);
-            *status = 1;
+            *status = 3;
             game_routine(game);
             return (0);
         }
@@ -68,7 +68,7 @@ void menu_func(t_page *menu, t_page *game, int *status)
     if (game->lvl)
     {
         if (!display_game_lvl(menu, game, status, game->lvl))
-        return ;
+            return ;
     }
 }
 

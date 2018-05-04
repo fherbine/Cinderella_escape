@@ -27,7 +27,7 @@ void cind(void)
             }
         }
 
-        if (*status == 1)
+        if (*status == 1 || *status == 3)
         {
             game_func(game, status);
             if (*status == 0)
