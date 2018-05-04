@@ -85,7 +85,10 @@ void    game_routine(t_page *game)
     {
         (game->bots)[0] = new_bot(bots_tab[0], 0, 5, game);
     }
-    rectfill(game->win, 0, 0, 25, 25, WHITE);
+    add_alph_bmp(game->win, "imgs/rArrow.bmp", 30, 25, 45, 160);
+    add_alph_bmp(game->win, "imgs/lArrow.bmp", 30, 25, 80, 160);
+    add_alph_bmp(game->win, "imgs/uArrow.bmp", 30, 25, 115, 160);
+    add_alph_bmp(game->win, "imgs/dArrow.bmp", 30, 25, 150, 160);
 }
 
 void game_func(t_page *game, int *status)
