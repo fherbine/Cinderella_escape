@@ -22,7 +22,7 @@ void    exec_code(t_page *game)
         else if (text->n == -1)
             text->n = 1;
 
-        if (((text->buf)[text->i] == 'r' || get_def_click(45, 160, 75, 185)) && current_bot->last_x + text->n < 15)
+        if (((text->buf)[text->i] == 'r' || get_def_click(45, 160, 75, 185)) && current_bot->last_x + text->n <= 15)
             end = refresh_bot(current_bot, current_bot->last_x + text->n, current_bot->last_y, game);
         else if (((text->buf)[text->i] == 'l' || get_def_click(80, 160, 110, 185)) && current_bot->last_x - text->n >= 0)
             end = refresh_bot(current_bot, current_bot->last_x - text->n, current_bot->last_y, game);
