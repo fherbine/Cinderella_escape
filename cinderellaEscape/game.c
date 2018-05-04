@@ -85,6 +85,7 @@ void    game_routine(t_page *game)
     {
         (game->bots)[0] = new_bot(bots_tab[0], 0, 5, game);
     }
+    rectfill(game->win, 0, 0, 25, 25, WHITE);
 }
 
 void game_func(t_page *game, int *status)
