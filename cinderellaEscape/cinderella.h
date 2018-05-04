@@ -58,6 +58,7 @@ t_text      *new_txt(int x1, int y1, int x2, int y2);
 void        read_buf(t_text *editor, t_page *game);
 
 void        exec_code(t_page *game);
+int         get_one_move(void);
 
 extern      t_bots_seq         bots_tab[NSEQ];
 

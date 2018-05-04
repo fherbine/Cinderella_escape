@@ -22,13 +22,13 @@ void    exec_code(t_page *game)
         else if (text->n == -1)
             text->n = 1;
 
-        if ((text->buf)[text->i] == 'r' && current_bot->last_x + text->n < 16)
+        if (((text->buf)[text->i] == 'r' || get_def_click(45, 160, 75, 185)) && current_bot->last_x + text->n < 15)
             end = refresh_bot(current_bot, current_bot->last_x + text->n, current_bot->last_y, game);
-        else if ((text->buf)[text->i] == 'l' && current_bot->last_x - text->n >= 0)
+        else if (((text->buf)[text->i] == 'l' || get_def_click(80, 160, 110, 185)) && current_bot->last_x - text->n >= 0)
             end = refresh_bot(current_bot, current_bot->last_x - text->n, current_bot->last_y, game);
-        else if ((text->buf)[text->i] == 'd' && current_bot->last_y + text->n < 14)
+        else if (((text->buf)[text->i] == 'd' || get_def_click(150, 160, 180, 185)) && current_bot->last_y + text->n < 14)
             end = refresh_bot(current_bot, current_bot->last_x, current_bot->last_y + text->n, game);
-        else if ((text->buf)[text->i] == 'u' && current_bot->last_y - text->n >= 0)
+        else if (((text->buf)[text->i] == 'u' || get_def_click(115, 160, 145, 185)) && current_bot->last_y - text->n >= 0)
             end = refresh_bot(current_bot, current_bot->last_x, current_bot->last_y - text->n, game);
         else if ((text->buf)[text->i] == 'R')
             text->i = 0;
@@ -45,4 +45,11 @@ void    exec_code(t_page *game)
         text->i = 0;
         text->n = -1;
     }
+}
+
+int get_one_move(void)
+{
+    if (get_def_click(45, 160, 75, 185) || get_def_click(80, 160, 110, 185) || get_def_click(115, 160, 145, 185) || get_def_click(150, 160, 180, 185))
+        return (1);
+    return (0);
 }

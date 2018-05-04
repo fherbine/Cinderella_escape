@@ -120,7 +120,7 @@ void game_func(t_page *game, int *status)
         game->execution ^= 1;
     game->win = put_box(game->boxes[3], game->win);
 
-    if (game->execution)
+    if (game->execution || get_one_move())
         exec_code(game);
     if (check_all_be_col(game) == 1)
     {
