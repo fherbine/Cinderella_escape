@@ -63,10 +63,12 @@ void    game_routine(t_page *game)
     (game->boxes)[1] = newButton(500, 20, "Aide");
     (game->boxes)[2] = newButton(75, 400, "Run");
     (game->boxes)[3] = newButton(50, 450, "Pause");
+    (game->boxes)[4] = newButton(20, 500, "Reinitialiser");
     game->win = put_box(game->boxes[0], game->win);
     game->win = put_box(game->boxes[1], game->win);
     game->win = put_box(game->boxes[2], game->win);
     game->win = put_box(game->boxes[3], game->win);
+    game->win = put_box(game->boxes[4], game->win);
 
     game->win = add_alph_bmp(game->win, "imgs/banner2.bmp", 200, 90, 10, 10);
     textprintf_ex(game->win, font, 20, 120, WHITE, BLACK, "LEVEL: %d", game->lvl);
@@ -125,6 +127,15 @@ void game_func(t_page *game, int *status)
     if ((game->boxes[3]).but_status == 2)
         game->execution ^= 1;
     game->win = put_box(game->boxes[3], game->win);
+
+    game->boxes[4] = buttonStatusUpdate(game->boxes[4]);
+    if ((game->boxes[4]).but_status == 2)
+    {
+        game->execution ^= 1;
+        destroy_bitmap(game->win);
+        game_routine(game);
+    }
+    game->win = put_box(game->boxes[4], game->win);
 
     if (game->execution || get_one_move())
         exec_code(game);
