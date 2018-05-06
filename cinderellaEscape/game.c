@@ -63,7 +63,7 @@ void    game_routine(t_page *game)
     (game->boxes)[1] = newButton(500, 20, "Aide");
     (game->boxes)[2] = newButton(75, 400, "Run");
     (game->boxes)[3] = newButton(50, 450, "Pause");
-    (game->boxes)[4] = newButton(20, 500, "Reinitialiser");
+    (game->boxes)[4] = newButton(25, 500, "Restart");
     game->win = put_box(game->boxes[0], game->win);
     game->win = put_box(game->boxes[1], game->win);
     game->win = put_box(game->boxes[2], game->win);
