@@ -35,6 +35,14 @@ void    init_all_seq(void)
     }
 }
 
+void    refresh_pos(t_bots *bot, t_page *game)
+{
+    clear_bitmap(bot->buffer);
+    blit(game->win, bot->buffer, 0, 0, 0, 0, SCREEN_W,SCREEN_H);
+    rotate_sprite(bot->buffer, bot->seq.img[(int)bot->cur_img], (int)bot->pos_x, (int)bot->pos_y, itofix(bot->angle));
+    blit(bot->buffer, game->win,  0, 0, 0, 0, SCREEN_W,SCREEN_H);
+}
+
 t_bots  *new_bot(t_bots_seq seq, float x, float y, t_page *game)
 {
     t_bots *bot;

@@ -39,6 +39,7 @@ int         check_all_be_col(t_page *game);
 void        init_all_seq(void);
 t_bots      *new_bot(t_bots_seq seq, float x, float y, t_page *game);
 int         refresh_bot(t_bots *bot, float dest_x, float dest_y, t_page *game, t_bots **bots);
+void        refresh_pos(t_bots *bot, t_page *game);
 
 
 void        menu_func(t_page *menu, t_page *game, int *status);

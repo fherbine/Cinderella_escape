@@ -28,6 +28,7 @@ void    clear_lvl(t_page *game)
         (game->elems)[3] = new_elem(3, 5, "imgs/banana.bmp", game);
         (game->elems)[4] = new_elem(12, 2, "imgs/banana.bmp", game);
         (game->elems)[5] = NULL;
+        refresh_pos((game->bots)[0], game);
     }
 
     if (game->lvl == 2)
@@ -39,6 +40,8 @@ void    clear_lvl(t_page *game)
         (game->elems)[3] = new_elem(3, 5, "imgs/banana.bmp", game);
         (game->elems)[4] = new_elem(12, 2, "imgs/banana.bmp", game);
         (game->elems)[5] = NULL;
+        refresh_pos((game->bots)[0], game);
+        refresh_pos((game->bots)[1], game);
     }
 
     if (game->lvl == 3)
@@ -63,7 +66,7 @@ void    game_routine(t_page *game)
     (game->boxes)[1] = newButton(500, 20, "Aide");
     (game->boxes)[2] = newButton(75, 400, "Run");
     (game->boxes)[3] = newButton(50, 450, "Pause");
-    (game->boxes)[4] = newButton(25, 500, "Restart");
+    (game->boxes)[4] = newButton(20, 500, "Reinit.");
     game->win = put_box(game->boxes[0], game->win);
     game->win = put_box(game->boxes[1], game->win);
     game->win = put_box(game->boxes[2], game->win);
@@ -76,7 +79,6 @@ void    game_routine(t_page *game)
     rect(game->win, 15, 190, 220, 380, BLACK);
     rectfill(game->win, 15, 190, 220, 380, WHITE);
     game->editor = new_txt(20, 200, 220, 368);
-    clear_lvl(game);
     if (game->lvl == 1)
     {
         (game->bots)[0] = new_bot(bots_tab[0], 0, 5, game);
@@ -97,6 +99,8 @@ void    game_routine(t_page *game)
     add_alph_bmp(game->win, "imgs/lArrow.bmp", 30, 25, 80, 160);
     add_alph_bmp(game->win, "imgs/uArrow.bmp", 30, 25, 115, 160);
     add_alph_bmp(game->win, "imgs/dArrow.bmp", 30, 25, 150, 160);
+    clear_lvl(game);
+    printf("<== ROUTINE\n");
 }
 
 void game_func(t_page *game, int *status)
@@ -147,11 +151,13 @@ void game_func(t_page *game, int *status)
         free_elems(game->elems);
         destroy_bitmap(game->win);
         game_routine(game);
+        game->execution = 0;
     }
     else if (check_all_be_col(game) == -1)
     {
         allegro_message("You lose at level %d", game->lvl);
         game_routine(game);
+        game->execution = 0;
     }
     read_buf(game->editor, game);
 }
