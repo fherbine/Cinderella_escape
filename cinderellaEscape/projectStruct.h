@@ -54,6 +54,7 @@ typedef struct  s_page
     t_box       *boxes;
     t_text      *editor;
     t_bots      **bots;
+    int         cbot;
     t_elems     **elems;
     int         execution, lvl;
 }               t_page;

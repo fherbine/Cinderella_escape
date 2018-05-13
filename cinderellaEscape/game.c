@@ -34,12 +34,13 @@ void    clear_lvl(t_page *game)
     if (game->lvl == 2)
     {
         game->win = add_reg_bmp(game->win, "imgs/map2.bmp", 560, 490, 238, 108);
-        (game->elems)[0] = new_elem(15, 13, "imgs/finish.bmp", game);
-        (game->elems)[1] = new_elem(10, 10, "imgs/banana.bmp", game);
-        (game->elems)[2] = new_elem(5, 10, "imgs/banana.bmp", game);
-        (game->elems)[3] = new_elem(3, 5, "imgs/banana.bmp", game);
-        (game->elems)[4] = new_elem(12, 2, "imgs/banana.bmp", game);
-        (game->elems)[5] = NULL;
+        (game->elems)[0] = new_elem(15, 4, "imgs/finish.bmp", game);
+        (game->elems)[1] = new_elem(15, 11, "imgs/finish.bmp", game);
+        (game->elems)[2] = new_elem(7, 6, "imgs/banana.bmp", game);
+        (game->elems)[3] = new_elem(5, 9, "imgs/banana.bmp", game);
+        (game->elems)[4] = new_elem(5, 3, "imgs/banana.bmp", game);
+        (game->elems)[5] = new_elem(12, 2, "imgs/banana.bmp", game);
+        (game->elems)[6] = NULL;
         refresh_pos((game->bots)[0], game);
         refresh_pos((game->bots)[1], game);
     }
@@ -53,12 +54,14 @@ void    clear_lvl(t_page *game)
         (game->elems)[3] = new_elem(3, 5, "imgs/banana.bmp", game);
         (game->elems)[4] = new_elem(12, 2, "imgs/banana.bmp", game);
         (game->elems)[5] = NULL;
+        refresh_pos((game->bots)[0], game);
     }
 }
 
 void    game_routine(t_page *game)
 {
     printf("===================> ROUTINE\n");
+    game->cbot = 0;
     game->win = create_bitmap(SCREEN_W, SCREEN_H);
     clear_bitmap(game->win);
     game->win = backgroundImg("imgs/bg2.bmp", game->win);

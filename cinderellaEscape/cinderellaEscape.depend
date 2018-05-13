@@ -38,7 +38,7 @@
 
 1524608243 c:\users\felix\desktop\cb\cind\cinderellaescape\colors.h
 
-1525472886 c:\users\felix\desktop\cb\cind\cinderellaescape\projectstruct.h
+1526134096 c:\users\felix\desktop\cb\cind\cinderellaescape\projectstruct.h
 
 1524799745 source:c:\users\felix\desktop\cb\cind\cinderellaescape\config.c
 	"cinderella.h"
@@ -66,13 +66,13 @@
 1525437255 source:c:\users\felix\desktop\cb\cind\cinderellaescape\menu.c
 	"cinderella.h"
 
-1526132306 source:c:\users\felix\desktop\cb\cind\cinderellaescape\game.c
+1526134096 source:c:\users\felix\desktop\cb\cind\cinderellaescape\game.c
 	"cinderella.h"
 
 1525265675 source:c:\users\felix\desktop\cb\cind\cinderellaescape\parsing_helper.c
 	"cinderella.h"
 
-1526130847 source:c:\users\felix\desktop\cb\cind\cinderellaescape\parser.c
+1526134300 source:c:\users\felix\desktop\cb\cind\cinderellaescape\parser.c
 	"cinderella.h"
 
 1525451854 source:c:\users\felix\desktop\cb\cind\cinderellaescape\help.c
