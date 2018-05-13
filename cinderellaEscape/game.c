@@ -145,7 +145,10 @@ void game_func(t_page *game, int *status)
 
     game->boxes[3] = buttonStatusUpdate(game->boxes[3]);
     if ((game->boxes[3]).but_status == 2)
+    {
+        usleep(1000 * 200); // delay during 200 ms
         game->execution ^= 1;
+    }
     game->win = put_box(game->boxes[3], game->win);
 
     game->boxes[4] = buttonStatusUpdate(game->boxes[4]);
