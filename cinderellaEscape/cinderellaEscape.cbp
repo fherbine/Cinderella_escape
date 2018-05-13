@@ -51,6 +51,9 @@
 		<Unit filename="cinderella.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
+		<Unit filename="colors.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="colors.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
