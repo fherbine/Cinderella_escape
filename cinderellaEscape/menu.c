@@ -17,10 +17,10 @@ void    menu_routine(t_page *menu, t_page *game)
     menu->win = backgroundImg("imgs/bg.bmp", menu->win);
     (menu->boxes)[0] = newButton(200, 375, "Nouvelle partie");
     (menu->boxes)[1] = newButton(300, 450, "Quitter");
-    (menu->boxes)[2] = newButton(45, 300, "LVL 1");
-    (menu->boxes)[3] = newButton(195, 300, "LVL 2");
-    (menu->boxes)[4] = newButton(345, 300, "LVL 3");
-    (menu->boxes)[5] = newButton(480, 300, "LVL 4");
+    (menu->boxes)[2] = newButton(108, 300, "LVL 1");
+    (menu->boxes)[3] = newButton(258, 300, "LVL 2");
+    (menu->boxes)[4] = newButton(408, 300, "LVL 3");
+    (menu->boxes)[5] = newButton(558, 300, "LVL 4");
     menu->win = put_box(menu->boxes[0], menu->win);
     menu->win = put_box(menu->boxes[1], menu->win);
     if (game->lvl)
