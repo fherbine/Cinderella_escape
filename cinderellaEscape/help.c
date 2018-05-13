@@ -30,7 +30,9 @@ void    help_routine(t_page *help)
     textprintf_ex(help->win, font, 100, 170,  BLACK, WHITE, "BYTECODE:");
     textprintf_ex(help->win, font, 100, 185,  BLACK, WHITE, "- u<x>: Monter de x cases.         - d<x>: Descendre de x cases.");
     textprintf_ex(help->win, font, 100, 195,  BLACK, WHITE, "- r<x>: Aller a droite de x cases. - l<x>: Aller a gauche de x cases.");
-    textprintf_ex(help->win, font, 100, 205,  BLACK, WHITE, "- R: Recommencer le bytecode.");
+    textprintf_ex(help->win, font, 100, 205,  BLACK, WHITE, "- R: Recommencer le bytecode.      - C: Colorier la case en dessous du bot.");
+    textprintf_ex(help->win, font, 100, 215,  BLACK, WHITE, "- c[<bytecode>]: utiliser cendrillon.");
+    textprintf_ex(help->win, font, 100, 225,  BLACK, WHITE, "- p[<bytecode>]: utiliser le prince.");
 }
 
 void help_func(t_page *help, int *status)
