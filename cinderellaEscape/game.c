@@ -156,7 +156,6 @@ void game_func(t_page *game, int *status)
 
     if (game->execution || get_one_move())
         exec_code(game);
-    //printf("(%f, %f)\n", game->bots[0]->virt_x, game->bots[0]->virt_y);
     if (check_all_be_col(game) == 1)
     {
         game->execution = 0;

@@ -7,14 +7,15 @@ void    exec_code(t_page *game)
     t_text *text;
     text = game->editor;
 
+    current_bot = (game->bots)[game->cbot];
     if ((text->buf)[text->i])
     {
         if (strncmp(&((text->buf)[text->i]), "c[", 2) == 0)
             game->cbot = 0;
         if (strncmp(&((text->buf)[text->i]), "p[", 2) == 0 && (game->lvl == 2 || game->lvl == 4))
             game->cbot = 1;
-        //printf("%d\n", game->cbot);
         current_bot = (game->bots)[game->cbot];
+        //printf("%d\n", game->cbot);
         if (text->n == -1 && strchr("123456789", (text->buf)[text->i + 1]))
         {
             text->n = atoi(&((text->buf)[text->i + 1]));
