@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <math.h>
+#include <time.h>
 #include "colors.h"
 #include "maps.h"
 #include "projectStruct.h"

@@ -63,6 +63,7 @@ typedef struct  s_page
     t_elems     **elems;
     int         execution, lvl;
     t_colcase   cols[225];
+    int         locked_time;
 }               t_page;
 
 #endif

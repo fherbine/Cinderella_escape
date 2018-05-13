@@ -86,6 +86,7 @@ void    game_routine(t_page *game)
     rectfill(game->win, 15, 190, 220, 380, WHITE);
     game->editor = new_txt(20, 200, 220, 368);
     reset_coltab(game);
+    game->locked_time = (int)time(NULL) + 15;
     if (game->lvl == 1)
     {
         (game->bots)[0] = new_bot(bots_tab[0], 0, 5, game);
@@ -112,6 +113,10 @@ void    game_routine(t_page *game)
 
 void game_func(t_page *game, int *status)
 {
+    int tmp = game->locked_time - (int)time(NULL);
+
+    if(game->lvl == 3)
+        textprintf_ex(game->win, font, 240, 110, RED, GREEN, "0:%s%d", (tmp / 10) ?  "" : "0", tmp);
     game->boxes[0] = buttonStatusUpdate(game->boxes[0]);
     if ((game->boxes[0]).but_status == 2)
     {
@@ -160,7 +165,7 @@ void game_func(t_page *game, int *status)
         game_routine(game);
         game->execution = 0;
     }
-    else if (check_all_be_col(game) == -1)
+    else if (check_all_be_col(game) == -1 || (tmp == 0 && game->lvl == 3))
     {
         allegro_message("You lose at level %d", game->lvl);
         game_routine(game);
