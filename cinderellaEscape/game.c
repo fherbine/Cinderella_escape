@@ -72,7 +72,7 @@ void    clear_lvl(t_page *game)
 
 void    game_routine(t_page *game)
 {
-    printf("===================> ROUTINE\n");
+    mouse_b = 0;
     game->cbot = 0;
     game->win = create_bitmap(SCREEN_W, SCREEN_H);
     clear_bitmap(game->win);
@@ -112,7 +112,6 @@ void    game_routine(t_page *game)
     add_alph_bmp(game->win, "imgs/uArrow.bmp", 30, 25, 115, 160);
     add_alph_bmp(game->win, "imgs/dArrow.bmp", 30, 25, 150, 160);
     clear_lvl(game);
-    printf("<== ROUTINE\n");
 }
 
 void game_func(t_page *game, int *status)
