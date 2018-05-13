@@ -19,6 +19,7 @@ t_page  *game_init(void)
 
 void    clear_lvl(t_page *game)
 {
+    int tmp = game->locked_time - (int)time(NULL);
     if (game->lvl == 1 || game->lvl == 3)
     {
         game->win = add_reg_bmp(game->win, "imgs/map1.bmp", 560, 490, 238, 108);
@@ -29,6 +30,8 @@ void    clear_lvl(t_page *game)
         (game->elems)[4] = new_elem(12, 2, "imgs/banana.bmp", game);
         (game->elems)[5] = NULL;
         display_color(game);
+        if(game->lvl == 3)
+            textprintf_ex(game->win, font, 240, 110, RED, GREEN, "0:%s%d", (tmp / 10) ?  "" : "0", tmp);
         refresh_pos((game->bots)[0], game);
     }
 
