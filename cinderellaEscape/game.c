@@ -28,6 +28,7 @@ void    clear_lvl(t_page *game)
         (game->elems)[3] = new_elem(3, 5, "imgs/banana.bmp", game);
         (game->elems)[4] = new_elem(12, 2, "imgs/banana.bmp", game);
         (game->elems)[5] = NULL;
+        display_color(game);
         refresh_pos((game->bots)[0], game);
     }
 
@@ -41,6 +42,7 @@ void    clear_lvl(t_page *game)
         (game->elems)[4] = new_elem(5, 3, "imgs/banana.bmp", game);
         (game->elems)[5] = new_elem(12, 2, "imgs/banana.bmp", game);
         (game->elems)[6] = NULL;
+        display_color(game);
         refresh_pos((game->bots)[0], game);
         refresh_pos((game->bots)[1], game);
     }
@@ -54,6 +56,7 @@ void    clear_lvl(t_page *game)
         (game->elems)[3] = new_elem(3, 5, "imgs/banana.bmp", game);
         (game->elems)[4] = new_elem(12, 2, "imgs/banana.bmp", game);
         (game->elems)[5] = NULL;
+        display_color(game);
         refresh_pos((game->bots)[0], game);
     }
 }
@@ -82,6 +85,7 @@ void    game_routine(t_page *game)
     rect(game->win, 15, 190, 220, 380, BLACK);
     rectfill(game->win, 15, 190, 220, 380, WHITE);
     game->editor = new_txt(20, 200, 220, 368);
+    reset_coltab(game);
     if (game->lvl == 1)
     {
         (game->bots)[0] = new_bot(bots_tab[0], 0, 5, game);

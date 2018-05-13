@@ -13,7 +13,7 @@ void    exec_code(t_page *game)
             game->cbot = 0;
         if (strncmp(&((text->buf)[text->i]), "p[", 2) == 0 && game->lvl == 2)
             game->cbot = 1;
-        printf("%d\n", game->cbot);
+        //printf("%d\n", game->cbot);
         current_bot = (game->bots)[game->cbot];
         if (text->n == -1 && strchr("123456789", (text->buf)[text->i + 1]))
         {
@@ -33,6 +33,11 @@ void    exec_code(t_page *game)
             end = refresh_bot(current_bot, current_bot->last_x, current_bot->last_y - text->n, game, game->bots);
         else if ((text->buf)[text->i] == 'R')
             text->i = 0;
+        else if ((text->buf)[text->i] == 'C')
+        {
+            add_color_case(game, current_bot);
+            end = 1;
+        }
         else
             end = 1;
         text->i += (end) ? 1 : 0;

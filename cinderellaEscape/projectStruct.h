@@ -48,6 +48,11 @@ typedef struct  s_elems
     float         virt_x, virt_y;
 }               t_elems;
 
+typedef struct  s_colored_case
+{
+    int         x, y;
+}               t_colcase;
+
 typedef struct  s_page
 {
     BITMAP      *win;
@@ -57,6 +62,7 @@ typedef struct  s_page
     int         cbot;
     t_elems     **elems;
     int         execution, lvl;
+    t_colcase   cols[225];
 }               t_page;
 
 #endif

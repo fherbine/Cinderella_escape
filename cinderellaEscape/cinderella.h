@@ -61,6 +61,10 @@ void        read_buf(t_text *editor, t_page *game);
 void        exec_code(t_page *game);
 int         get_one_move(void);
 
+void        reset_coltab(t_page *game);
+void        add_color_case(t_page *game, t_bots *current);
+void        display_color(t_page *game);
+
 extern      t_bots_seq         bots_tab[NSEQ];
 
 #endif
